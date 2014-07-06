@@ -1,0 +1,16 @@
+# シャープで始めるとコメント行になる
+
+*/proj.android/assets/
+
+*/proj.android/*/*.o
+
+*.xcworkspacedata
+*.xcuserdatad
+project.xcworkspace
+
+*.settings
+
+assets/
+bin/
+gen/
+obj/
