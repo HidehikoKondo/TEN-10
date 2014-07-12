@@ -16,6 +16,8 @@
 		5785DA3319359FD600E15900 /* CountNumberSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5785DA3119359FD600E15900 /* CountNumberSprite.cpp */; };
 		578FBFA11965AD5700448379 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBF9F1965AD5700448379 /* TitleScene.cpp */; };
 		578FBFA51969731300448379 /* NumberTenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBFA31969731300448379 /* NumberTenScene.cpp */; };
+		578FBFA71970D84100448379 /* button in Resources */ = {isa = PBXBuildFile; fileRef = 578FBFA61970D84100448379 /* button */; };
+		578FBFAA1971323400448379 /* ButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBFA81971323400448379 /* ButtonFactory.cpp */; };
 		5798D939193988B400111632 /* SmorkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5798D937193988B400111632 /* SmorkManager.cpp */; };
 		5798D93C193B823100111632 /* ScoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5798D93A193B823100111632 /* ScoreLayer.cpp */; };
 		57A2A7291933AEF1001322C2 /* ShuttleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57A2A7271933AEF1001322C2 /* ShuttleModel.cpp */; };
@@ -300,6 +302,9 @@
 		578FBFA01965AD5700448379 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		578FBFA31969731300448379 /* NumberTenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberTenScene.cpp; sourceTree = "<group>"; };
 		578FBFA41969731300448379 /* NumberTenScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberTenScene.h; sourceTree = "<group>"; };
+		578FBFA61970D84100448379 /* button */ = {isa = PBXFileReference; lastKnownFileType = folder; path = button; sourceTree = "<group>"; };
+		578FBFA81971323400448379 /* ButtonFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonFactory.cpp; sourceTree = "<group>"; };
+		578FBFA91971323400448379 /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonFactory.h; sourceTree = "<group>"; };
 		5798D937193988B400111632 /* SmorkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmorkManager.cpp; sourceTree = "<group>"; };
 		5798D938193988B400111632 /* SmorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmorkManager.h; sourceTree = "<group>"; };
 		5798D93A193B823100111632 /* ScoreLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreLayer.cpp; sourceTree = "<group>"; };
@@ -918,6 +923,8 @@
 			children = (
 				578FBFA31969731300448379 /* NumberTenScene.cpp */,
 				578FBFA41969731300448379 /* NumberTenScene.h */,
+				578FBFA81971323400448379 /* ButtonFactory.cpp */,
+				578FBFA91971323400448379 /* ButtonFactory.h */,
 			);
 			name = NumberTenGame;
 			sourceTree = "<group>";
@@ -979,6 +986,7 @@
 		57AAACB4185EBB3600092891 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				578FBFA61970D84100448379 /* button */,
 				577C57E0193F818C00CBEBE6 /* sound */,
 				57055F2E18B5265900EEC416 /* logo */,
 				57055F2818B0A56A00EEC416 /* Info.plist */,
@@ -2230,6 +2238,7 @@
 			files = (
 				57055F2D18B30A2000EEC416 /* Images.xcassets in Resources */,
 				57055F2F18B5265900EEC416 /* logo in Resources */,
+				578FBFA71970D84100448379 /* button in Resources */,
 				57AAAD69185EBB3700092891 /* ChangeLog in Resources */,
 				57055F2718B0A4D200EEC416 /* base in Resources */,
 				57055F2918B0A56A00EEC416 /* Info.plist in Resources */,
@@ -2413,6 +2422,7 @@
 				57AAAD86185EBB3700092891 /* CCKeypadDelegate.cpp in Sources */,
 				57AAAFD7185EBB3A00092891 /* SlotData.cpp in Sources */,
 				57AAAEB6185EBB3900092891 /* CCTMXTiledMap.cpp in Sources */,
+				578FBFAA1971323400448379 /* ButtonFactory.cpp in Sources */,
 				57AAAF61185EBB3A00092891 /* CCInvocation.cpp in Sources */,
 				57AAAD71185EBB3700092891 /* mat3.c in Sources */,
 				57AAAF6D185EBB3A00092891 /* CCEditBoxImplIOS.mm in Sources */,

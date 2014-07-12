@@ -84,7 +84,7 @@ void TitleScene::NextScene(CCObject*obj)
     sprite->stopAllActions();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    AstExt::NativeCodeAst::hideAst();
+//    AstExt::NativeCodeAst::hideAst();
 #endif
     
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);

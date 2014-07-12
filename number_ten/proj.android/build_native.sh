@@ -1,4 +1,4 @@
-APPNAME="rush_freak"
+APPNAME="number_ten"
 NDK_ROOT="/Applications/android-ndk-r8e"
 
 # options
