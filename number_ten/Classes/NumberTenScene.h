@@ -31,8 +31,8 @@ protected:
     NUMBER_BUTTON_TYPE m_AnserType[8];
    
     cocos2d::CCArray * m_buttonNumber;    //数値ボタン
-    
     cocos2d::CCArray * m_buttonMarker;    //記号ボタン
+    cocos2d::CCArray * m_usedButtonList;    //使用済みボタン
     
     cocos2d::CCMenuItem * m_buttonEnter;
     cocos2d::CCMenuItem * m_buttonBS;

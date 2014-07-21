@@ -34,6 +34,8 @@ NumberTenScene::NumberTenScene()
     CC_SAFE_RETAIN(this->m_buttonNumber);
     this->m_buttonMarker = CCArray::create();
     CC_SAFE_RETAIN(this->m_buttonMarker);
+    this->m_usedButtonList = CCArray::create();
+    CC_SAFE_RETAIN(this->m_usedButtonList);
 }
 /**
  * デストラクタ
@@ -42,6 +44,7 @@ NumberTenScene::~NumberTenScene()
 {
     CC_SAFE_RELEASE_NULL(this->m_buttonNumber);
     CC_SAFE_RELEASE_NULL(this->m_buttonMarker);
+    CC_SAFE_RELEASE_NULL(this->m_usedButtonList);
 }
 
 CCScene* NumberTenScene::scene()
@@ -221,10 +224,14 @@ void NumberTenScene::onTapButton(cocos2d::CCObject* obj)
 {
     CCMenuItem * menuItem = dynamic_cast<CCMenuItem*>(obj);
     if(NULL == menuItem)return;
+    
+    //使用済みボタンとして登録する
+    this->m_usedButtonList->addObject(menuItem);
 
     //大丈夫なボダンなら
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_RUSH);
     
+    //押されたボタンを記録する
     this->m_AnserType[this->m_InputCount] = static_cast<NUMBER_BUTTON_TYPE>(menuItem->getTag() - NUMBER_TAG_OFFSET);
     
     CCLOG("INPUT %d",this->m_AnserType[this->m_InputCount]);
@@ -232,10 +239,12 @@ void NumberTenScene::onTapButton(cocos2d::CCObject* obj)
     //次の入力
     if(this->m_AnserType[this->m_InputCount] == NBT_BACK)
     {
+        //入力を取り消す
         if(this->m_InputCount>0)this->m_InputCount--;
     }
     else if(this->m_AnserType[this->m_InputCount] == NBT_ENTER)
     {
+        //答え合わせをする
         this->checkNumber();
     }
     else
@@ -305,6 +314,17 @@ void NumberTenScene::chengePushButtonEnable()
         if(menuItem)
         {
             menuItem->setEnabled(number);
+            //既に押されていないか検索
+            long count = this->m_usedButtonList->count();
+            for(long index = 0;index < count ; index++)
+            {
+                //既に押されている
+                if(menuItem == this->m_usedButtonList->objectAtIndex(index))
+                {
+                    menuItem->setEnabled(false);
+                    break;
+                }
+            }
         }
     }
     CCARRAY_FOREACH(this->m_buttonMarker, obj)
