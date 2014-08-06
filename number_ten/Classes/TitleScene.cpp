@@ -7,7 +7,9 @@
 //
 
 #include "TitleScene.h"
+#include "GameRuleManager.h"
 #include "NumberTenScene.h"
+#include "RunkingScene.h"
 #include "SimpleAudioEngine.h"
 #include "NativeCodeAst.h"
 #include "SoundDef.h"
@@ -49,23 +51,45 @@ bool TitleScene::init()
     
     CCSize size = CCDirector::sharedDirector()->getWinSize();
 
-    CCSprite* pSprite = CCSprite::create("base/title_number_ten.png");
+    CCSprite* pSprite = CCSprite::create("title/title_number_ten.png");
     pSprite->setTag(5000);
     
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size.width/2, size.height*0.75f) );
     
-    
-    CCLabelTTF * TapStringLabel = CCLabelTTF::create("タッチしてスタート", "Helvetica", 32);
-    CCMenuItemLabel* LabelButton = CCMenuItemLabel::create(TapStringLabel, this, menu_selector(TitleScene::NextScene));
-    CCMenu * StartMenu = CCMenu::create(LabelButton,NULL);
+    CCMenu * StartMenu = CCMenu::create();
+    StartMenu->setPosition(CCPointZero);
     this->addChild(StartMenu);
 
-    StartMenu->setPosition(CCPointZero);
+    //チャレンジボタン
+    CCSprite* pChallengeImg = CCSprite::create("title/button_challenge.png");
+    CCSprite* pChallengeImg_sel = CCSprite::create("title/button_challenge.png");
+    pChallengeImg_sel->setScale(1.05f);
+    CCMenuItemSprite* challengeButton = CCMenuItemSprite::create(pChallengeImg,pChallengeImg_sel, this, menu_selector(TitleScene::moveSceneToChallenge));
+    challengeButton->setAnchorPoint(ccp(0.5f,0.5f));
+    challengeButton->setPosition(ccp(size.width/2,size.height * 0.45f));
+    challengeButton->setScale(0.5f);
+    StartMenu->addChild(challengeButton);
+
+    //タイムトライアルボタン
+    CCSprite* pTimeImg = CCSprite::create("title/button_time_trial.png");
+    CCSprite* pTimeImg_sel = CCSprite::create("title/button_time_trial.png");
+    pTimeImg_sel->setScale(1.05f);
+    CCMenuItemSprite* timeButton = CCMenuItemSprite::create(pTimeImg,pTimeImg_sel, this, menu_selector(TitleScene::moveSceneToTimeTrial));
+    timeButton->setAnchorPoint(ccp(0.5f,0.5f));
+    timeButton->setPosition(ccp(size.width/2,size.height * 0.35f));
+    timeButton->setScale(0.5f);
+    StartMenu->addChild(timeButton);
     
-    //タップしてスタート
-    LabelButton->setAnchorPoint(ccp(0.5f,0.5f));
-    LabelButton->setPosition(ccp(size.width/2,size.height * 0.25f));
+    //ランキングボタン
+    CCSprite* pRankingImg = CCSprite::create("title/button_ranking.png");
+    CCSprite* pRankingImg_sel = CCSprite::create("title/button_ranking.png");
+    pRankingImg_sel->setScale(1.05f);
+    CCMenuItemSprite* rankingButton = CCMenuItemSprite::create(pRankingImg,pRankingImg_sel, this, menu_selector(TitleScene::moveSceneToRanking));
+    rankingButton->setAnchorPoint(ccp(0.5f,0.5f));
+    rankingButton->setPosition(ccp(size.width/2,size.height * 0.25f));
+    rankingButton->setScale(0.5f);
+    StartMenu->addChild(rankingButton);
     
     // add the sprite as a child to this layer
     this->addChild(pSprite, 0);
@@ -90,6 +114,37 @@ void TitleScene::NextScene(CCObject*obj)
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
     
     CCDirector::sharedDirector()->replaceScene(NumberTenScene::scene());
+}
+/**
+ * チャレンジモード
+ */
+void TitleScene::moveSceneToChallenge(CCObject*obj)
+{
+    GameRuleManager::getInstance()->setGameMode(GM_CHALENGE);
+    
+    SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
+    
+    CCDirector::sharedDirector()->replaceScene(NumberTenScene::scene());
+}
+/**
+ * タイムトライアル
+ */
+void TitleScene::moveSceneToTimeTrial(CCObject*obj)
+{
+    GameRuleManager::getInstance()->setGameMode(GM_TIME_TRIAL);
+    
+    SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
+    
+    CCDirector::sharedDirector()->replaceScene(NumberTenScene::scene());
+}
+/**
+ * ランキング
+ */
+void TitleScene::moveSceneToRanking(CCObject*obj)
+{
+    SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
+    
+    CCDirector::sharedDirector()->replaceScene(RunkingScene::scene());
 }
 
 void TitleScene::menuCloseCallback(CCObject* pSender)

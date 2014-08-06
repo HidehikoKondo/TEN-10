@@ -20,13 +20,17 @@ public:
     // there's no 'id' in cpp, so we recommend to return the class instance pointer
     static cocos2d::CCScene* scene();
     
-    void NextScene(CCObject*obj);
-    
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
     
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(TitleScene);
+
+    void NextScene(CCObject*obj);
+    void moveSceneToChallenge(CCObject*obj);
+    void moveSceneToTimeTrial(CCObject*obj);
+    void moveSceneToRanking(CCObject*obj);
+    
 };
 
 #endif /* defined(__TreeTest__TitleScene__) */

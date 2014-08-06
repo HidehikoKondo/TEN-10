@@ -12,6 +12,10 @@
 		57055F2918B0A56A00EEC416 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57055F2818B0A56A00EEC416 /* Info.plist */; };
 		57055F2D18B30A2000EEC416 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57055F2C18B30A2000EEC416 /* Images.xcassets */; };
 		57055F2F18B5265900EEC416 /* logo in Resources */ = {isa = PBXBuildFile; fileRef = 57055F2E18B5265900EEC416 /* logo */; };
+		570A753D199288DA00B8144F /* HeaderUINode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 570A753B199288DA00B8144F /* HeaderUINode.cpp */; };
+		570A754019928B0B00B8144F /* GameRuleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 570A753E19928B0B00B8144F /* GameRuleManager.cpp */; };
+		570A754319928CDB00B8144F /* RunkingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 570A754119928CDB00B8144F /* RunkingScene.cpp */; };
+		570A75451992923B00B8144F /* title in Resources */ = {isa = PBXBuildFile; fileRef = 570A75441992923B00B8144F /* title */; };
 		577C57E1193F818C00CBEBE6 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 577C57E0193F818C00CBEBE6 /* sound */; };
 		5785DA3319359FD600E15900 /* CountNumberSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5785DA3119359FD600E15900 /* CountNumberSprite.cpp */; };
 		578FBFA11965AD5700448379 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBF9F1965AD5700448379 /* TitleScene.cpp */; };
@@ -294,6 +298,13 @@
 		57055F2818B0A56A00EEC416 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = number_ten/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		57055F2C18B30A2000EEC416 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		57055F2E18B5265900EEC416 /* logo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = logo; path = number_ten/Resources/logo; sourceTree = SOURCE_ROOT; };
+		570A753B199288DA00B8144F /* HeaderUINode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeaderUINode.cpp; sourceTree = "<group>"; };
+		570A753C199288DA00B8144F /* HeaderUINode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderUINode.h; sourceTree = "<group>"; };
+		570A753E19928B0B00B8144F /* GameRuleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameRuleManager.cpp; sourceTree = "<group>"; };
+		570A753F19928B0B00B8144F /* GameRuleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameRuleManager.h; sourceTree = "<group>"; };
+		570A754119928CDB00B8144F /* RunkingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunkingScene.cpp; sourceTree = "<group>"; };
+		570A754219928CDB00B8144F /* RunkingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunkingScene.h; sourceTree = "<group>"; };
+		570A75441992923B00B8144F /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
 		577C57E0193F818C00CBEBE6 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = number_ten/Resources/sound; sourceTree = SOURCE_ROOT; };
 		577C57E2193F830100CBEBE6 /* SoundDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundDef.h; sourceTree = "<group>"; };
 		5785DA3119359FD600E15900 /* CountNumberSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CountNumberSprite.cpp; sourceTree = "<group>"; };
@@ -925,6 +936,12 @@
 				578FBFA41969731300448379 /* NumberTenScene.h */,
 				578FBFA81971323400448379 /* ButtonFactory.cpp */,
 				578FBFA91971323400448379 /* ButtonFactory.h */,
+				570A753B199288DA00B8144F /* HeaderUINode.cpp */,
+				570A753C199288DA00B8144F /* HeaderUINode.h */,
+				570A753E19928B0B00B8144F /* GameRuleManager.cpp */,
+				570A753F19928B0B00B8144F /* GameRuleManager.h */,
+				570A754119928CDB00B8144F /* RunkingScene.cpp */,
+				570A754219928CDB00B8144F /* RunkingScene.h */,
 			);
 			name = NumberTenGame;
 			sourceTree = "<group>";
@@ -986,6 +1003,7 @@
 		57AAACB4185EBB3600092891 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				570A75441992923B00B8144F /* title */,
 				578FBFA61970D84100448379 /* button */,
 				577C57E0193F818C00CBEBE6 /* sound */,
 				57055F2E18B5265900EEC416 /* logo */,
@@ -2236,6 +2254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570A75451992923B00B8144F /* title in Resources */,
 				57055F2D18B30A2000EEC416 /* Images.xcassets in Resources */,
 				57055F2F18B5265900EEC416 /* logo in Resources */,
 				578FBFA71970D84100448379 /* button in Resources */,
@@ -2389,6 +2408,7 @@
 				57AAAF52185EBB3A00092891 /* CCControlSaturationBrightnessPicker.cpp in Sources */,
 				57AAAD21185EBB3700092891 /* CCDataVisitor.cpp in Sources */,
 				57AAACE5185EBB3600092891 /* CCActionGrid.cpp in Sources */,
+				570A754319928CDB00B8144F /* RunkingScene.cpp in Sources */,
 				57AAB013185EBB3B00092891 /* cpRotaryLimitJoint.c in Sources */,
 				57AAAEF6185EBB3900092891 /* CCBSequenceProperty.cpp in Sources */,
 				57AAAD75185EBB3700092891 /* neon_matrix_impl.c in Sources */,
@@ -2432,6 +2452,7 @@
 				57AAB009185EBB3B00092891 /* cpGearJoint.c in Sources */,
 				57AAAFB6185EBB3A00092891 /* BoneData.cpp in Sources */,
 				57AAAF17185EBB3900092891 /* CCMenuItemLoader.cpp in Sources */,
+				570A753D199288DA00B8144F /* HeaderUINode.cpp in Sources */,
 				57AAAE68185EBB3900092891 /* CCVertex.cpp in Sources */,
 				57AAAED1185EBB3900092891 /* CDOpenALSupport.m in Sources */,
 				57AAAF88185EBB3A00092891 /* LocalStorage.cpp in Sources */,
@@ -2463,6 +2484,7 @@
 				57AAADD8185EBB3800092891 /* CCSAXParser.cpp in Sources */,
 				57AAAE9A185EBB3900092891 /* CCTexture2D.cpp in Sources */,
 				57AAAF05185EBB3900092891 /* CCLabelBMFontLoader.cpp in Sources */,
+				570A754019928B0B00B8144F /* GameRuleManager.cpp in Sources */,
 				57AAB027185EBB3B00092891 /* cpPolyShape.c in Sources */,
 				57AAAE3F185EBB3800092891 /* ccShaders.cpp in Sources */,
 				57AAAD81185EBB3700092891 /* vec3.c in Sources */,
