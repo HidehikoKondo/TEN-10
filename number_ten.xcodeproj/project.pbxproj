@@ -289,6 +289,7 @@
 		57AAB04A185EBB3B00092891 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57AAB049185EBB3B00092891 /* HelloWorldScene.cpp */; };
 		57BE6DA818B900CE004514A8 /* ShuttleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DA618B900CE004514A8 /* ShuttleScene.cpp */; };
 		57BE6DAF18B902B8004514A8 /* SelectMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DAD18B902B8004514A8 /* SelectMenuScene.cpp */; };
+		57C0DB3D19A3BE3D00DB7D31 /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -905,6 +906,8 @@
 		57BE6DA718B900CE004514A8 /* ShuttleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuttleScene.h; sourceTree = "<group>"; };
 		57BE6DAD18B902B8004514A8 /* SelectMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectMenuScene.cpp; sourceTree = "<group>"; };
 		57BE6DAE18B902B8004514A8 /* SelectMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMenuScene.h; sourceTree = "<group>"; };
+		57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverLayer.cpp; sourceTree = "<group>"; };
+		57C0DB3C19A3BE3D00DB7D31 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -942,6 +945,8 @@
 				570A753F19928B0B00B8144F /* GameRuleManager.h */,
 				570A754119928CDB00B8144F /* RunkingScene.cpp */,
 				570A754219928CDB00B8144F /* RunkingScene.h */,
+				57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */,
+				57C0DB3C19A3BE3D00DB7D31 /* GameOverLayer.h */,
 			);
 			name = NumberTenGame;
 			sourceTree = "<group>";
@@ -2354,6 +2359,7 @@
 				57AAAEEB185EBB3900092891 /* CCBKeyframe.cpp in Sources */,
 				578FBFA11965AD5700448379 /* TitleScene.cpp in Sources */,
 				57AAAE8E185EBB3900092891 /* ZipUtils.cpp in Sources */,
+				57C0DB3D19A3BE3D00DB7D31 /* GameOverLayer.cpp in Sources */,
 				57AAAF93185EBB3A00092891 /* WebSocket.cpp in Sources */,
 				57AAAD1A185EBB3700092891 /* CCArray.cpp in Sources */,
 				57AAAE9D185EBB3900092891 /* CCTextureAtlas.cpp in Sources */,

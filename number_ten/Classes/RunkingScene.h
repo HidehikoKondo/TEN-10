@@ -27,6 +27,11 @@ public:
     ~RunkingScene();
     
     CREATE_FUNC(RunkingScene);
+    
+    /**
+     * メインメニューに戻る
+     */
+    void moveToTopScene(cocos2d::CCObject sender);
 };
 
 #endif /* defined(__number_ten__RunkingScene__) */

@@ -113,7 +113,9 @@ void TitleScene::NextScene(CCObject*obj)
     
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
     
-    CCDirector::sharedDirector()->replaceScene(NumberTenScene::scene());
+    CCDirector::sharedDirector()->replaceScene(
+                                               CCTransitionSlideInR::create(0.25f,NumberTenScene::scene())
+                                               );
 }
 /**
  * チャレンジモード
@@ -124,7 +126,9 @@ void TitleScene::moveSceneToChallenge(CCObject*obj)
     
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
     
-    CCDirector::sharedDirector()->replaceScene(NumberTenScene::scene());
+    CCDirector::sharedDirector()->replaceScene(
+                                               CCTransitionSlideInR::create(0.25f,NumberTenScene::scene())
+                                               );
 }
 /**
  * タイムトライアル
@@ -135,7 +139,9 @@ void TitleScene::moveSceneToTimeTrial(CCObject*obj)
     
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
     
-    CCDirector::sharedDirector()->replaceScene(NumberTenScene::scene());
+    CCDirector::sharedDirector()->replaceScene(
+                                               CCTransitionSlideInR::create(0.25f,NumberTenScene::scene())
+                                               );
 }
 /**
  * ランキング
@@ -144,7 +150,9 @@ void TitleScene::moveSceneToRanking(CCObject*obj)
 {
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_SELECT);
     
-    CCDirector::sharedDirector()->replaceScene(RunkingScene::scene());
+    CCDirector::sharedDirector()->replaceScene(
+                                               CCTransitionSlideInR::create(0.25f,RunkingScene::scene())
+                                               );
 }
 
 void TitleScene::menuCloseCallback(CCObject* pSender)

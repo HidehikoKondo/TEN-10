@@ -31,6 +31,15 @@ public:
      */
     static GameRuleManager * getInstance();
     
+    /**
+     * ランキングの情報を取得する
+     */
+    cocos2d::CCArray * getRankingList(GAME_MODE);
+
+    /**
+     * ランキングのスコアを登録する
+     */
+    void setRankingScore(long value);
 };
 
 #endif /* defined(__number_ten__GameRuleManager__) */
