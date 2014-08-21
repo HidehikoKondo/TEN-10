@@ -33,6 +33,7 @@ NumberTenScene::NumberTenScene()
 ,m_buttonBS(NULL)
 ,m_QuestionNumber(NULL)
 ,m_QuestionCounter(NULL)
+,m_TimerCounter(NULL)
 {
     this->m_buttonNumber = CCArray::create();
     CC_SAFE_RETAIN(this->m_buttonNumber);
@@ -101,20 +102,37 @@ bool NumberTenScene::init()
     this->m_buttonBS->setPosition(ccp(size.width / 4 * 3 ,size.height * 0.5f + DEF_CENTER_OFFSET_H_BTN_ENT));
     this->m_menu->addChild(this->m_buttonBS);
 
+    //問題数用ラベル
     this->m_QuestionCounter = QuestionCounterNode::create();
     this->m_QuestionCounter->setTarget(this, callfunc_selector(NumberTenScene::viewGameOverLayer));
+    this->m_QuestionCounter->setPosition(ccp(0,size.height - this->m_QuestionCounter->getContentSize().height));
     this->addChild(this->m_QuestionCounter,100);
+    
+    //時間計測用用ラベル
+    this->m_TimerCounter = TimeCounterNode::create();
+    this->m_TimerCounter->setTarget(this, callfunc_selector(NumberTenScene::viewGameOverLayer));
+    this->m_TimerCounter->setPosition(ccp(size.width - this->m_TimerCounter->getContentSize().width,
+                                          size.height - this->m_QuestionCounter->getContentSize().height));
+    this->addChild(this->m_TimerCounter,100);
     
     //ゲームモードによる設定
     if(GM_CHALENGE == GameRuleManager::getInstance()->getGameMode())
     {
         this->m_QuestionCounter->setCountMax(99);
+        this->m_TimerCounter->setCountMax(10);
+        this->m_TimerCounter->setTimerMode(TM_COUNT_DOWN);
     }
     else
     {
         //タイムトライアル
         this->m_QuestionCounter->setCountMax(10);
+        //99分99秒
+        this->m_TimerCounter->setCountMax(5999);
+        this->m_TimerCounter->setTimerMode(TM_COUNT_UP);
     }
+    
+    this->m_TimerCounter->resetCounter();
+    this->m_TimerCounter->start();
     
     //記号ボタンの設定
     this->initStageMarker();
@@ -400,6 +418,17 @@ void NumberTenScene::checkNumber()
         
         //次の問題に行く
         this->stageInitSet();
+        
+        //カウントアップ
+        this->m_QuestionCounter->countUp();
+        
+        //タイマーの設定
+        if(GameRuleManager::getInstance()->getGameMode() == GM_CHALENGE)
+        {
+            this->m_TimerCounter->stop();
+            this->m_TimerCounter->resetCounter();
+            this->m_TimerCounter->start();
+        }
     }
     else
     {
@@ -412,6 +441,9 @@ void NumberTenScene::checkNumber()
  */
 void NumberTenScene::viewGameOverLayer()
 {
+    //全部のボタンを押せなくする
+    this->m_menu->setEnabled(false);
+    
     GameOverLayer * layer = GameOverLayer::create();
     this->addChild(layer,100000);
     layer->setPosition(CCPointZero);

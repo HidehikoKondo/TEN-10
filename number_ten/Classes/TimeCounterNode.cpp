@@ -12,8 +12,9 @@
 USING_NS_CC;
 
 TimeCounterNode::TimeCounterNode()
-:m_count(1)
-,m_CountMax(99)
+:m_count(10)
+,m_TimerMode(TM_COUNT_DOWN)
+,m_CountMax(10)
 ,m_CountStrLablel(NULL)
 ,m_target(NULL)
 {
@@ -29,6 +30,15 @@ bool TimeCounterNode::init()
     {
         return false;
     }
+    
+    this->setContentSize(CCSizeMake(100, 30));
+    
+    this->m_CountStrLablel = CCLabelBMFont::create("00:00", "base/little_number2.fnt", 100, kCCTextAlignmentRight);
+    this->m_CountStrLablel->setPosition(CCPointZero);
+    this->m_CountStrLablel->setAnchorPoint(CCPointZero);
+    this->addChild(this->m_CountStrLablel);
+    
+    this->viewReflesh();
     
     return true;
 }
@@ -49,23 +59,82 @@ void TimeCounterNode::setTarget(CCObject* target,cocos2d::SEL_CallFunc func)
  */
 void TimeCounterNode::countUp()
 {
-    if(this->m_count < this->m_CountMax)
+    if(this->m_TimerMode == TM_COUNT_DOWN)
     {
-        this->m_count++;
+        if(this->m_count > 0)
+        {
+            this->m_count--;
+            this->viewReflesh();
+            //再度タイマー発動
+            this->start();
+        }
+        else
+        {
+            if(this->m_target)
+            {
+                //最大値到達コールバック
+                (this->m_target->*this->m_func)();
+            }
+        }
     }
     else
     {
-        if(this->m_target)
+        if(this->m_count < this->m_CountMax)
         {
-            //最大値到達コールバック
-            (this->m_target->*this->m_func)();
+            this->m_count++;
+            this->viewReflesh();
+            //再度タイマー発動
+            this->start();
+        }
+        else
+        {
+            if(this->m_target)
+            {
+                //最大値到達コールバック
+                (this->m_target->*this->m_func)();
+            }
         }
     }
 }
+/**
+ * 表示を更新する
+ */
+void TimeCounterNode::viewReflesh()
+{
+    char buff[30];
+    sprintf(buff,"%2ld:%02ld",static_cast<long>(this->m_count/ 60),this->m_count%60);
+    this->m_CountStrLablel->setString(buff);
+}
+
 /**
  * カウンターをリセットする
  */
 void TimeCounterNode::resetCounter()
 {
-    this->m_count = 1;
+    if(this->m_TimerMode == TM_COUNT_DOWN)
+    {
+        this->m_count = this->m_CountMax;
+    }
+    else
+    {
+        this->m_count = 0;
+    }
 }
+/**
+ * タイマーを開始する
+ */
+void TimeCounterNode::start()
+{
+    CCArray *seq = CCArray::create();
+    seq->addObject(CCDelayTime::create(1.0f));
+    seq->addObject(CCCallFunc::create(this, callfunc_selector(TimeCounterNode::countUp)));
+    this->runAction(CCSequence::create(seq));
+}
+/**
+ * タイマーを停止する
+ */
+void TimeCounterNode::stop()
+{
+    this->stopAllActions();
+}
+

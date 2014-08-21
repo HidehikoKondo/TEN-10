@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 
-class GameOverLayer : public cocos2d::CCLayer
+class GameOverLayer : public cocos2d::CCLayerColor
 {
 protected:
     cocos2d::CCSprite * m_GameOverString;

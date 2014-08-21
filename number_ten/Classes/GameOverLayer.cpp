@@ -21,11 +21,14 @@ GameOverLayer::~GameOverLayer()
 
 bool GameOverLayer::init()
 {
-    if(!CCLayer::init())
+    if(!CCLayerColor::init())
     {
         return false;
     }
     CCSize size = CCDirector::sharedDirector()->getWinSize();
+    
+    this->setColor(ccc3(0, 0, 0));
+    this->setOpacity(0xBF);
     
     this->m_GameOverString = CCSprite::create("base/game_over_title.png");
     this->m_GameOverString->setPosition(ccp(size.width * 0.5f,size.height * 0.75f));

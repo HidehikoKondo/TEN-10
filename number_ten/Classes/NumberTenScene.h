@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 #include "ButtonFactory.h"
 #include "QuestionCounterNode.h"
+#include "TimeCounterNode.h"
 
 #define DEF_MAX_STAGE (10)
 /**
@@ -45,6 +46,7 @@ protected:
     cocos2d::CCMenu * m_menu;
     
     QuestionCounterNode * m_QuestionCounter;
+    TimeCounterNode * m_TimerCounter;
     
     /**
      * 記号ボタンの設定
