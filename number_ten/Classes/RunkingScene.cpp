@@ -10,6 +10,7 @@
 #include "TitleScene.h"
 #include "SimpleAudioEngine.h"
 #include "SoundDef.h"
+#include "GameRuleManager.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -18,6 +19,7 @@ using namespace CocosDenshion;
  * コンストラクタ
  */
 RunkingScene::RunkingScene()
+:m_rankingList(NULL)
 {
 }
 /**
@@ -25,6 +27,7 @@ RunkingScene::RunkingScene()
  */
 RunkingScene::~RunkingScene()
 {
+    CC_SAFE_RELEASE_NULL(this->m_rankingList);
 }
 
 CCScene* RunkingScene::scene()
@@ -63,15 +66,149 @@ bool RunkingScene::init()
     this->addChild(menu,0);
     menu->setPosition(CCPointZero);
     
+
+    this->makeChalengeRanking();
+    
+    //切り替えボタン
+    CCLabelBMFont * chaStrLabel = CCLabelBMFont::create("[ Chalenge ]", "base/little_number2.fnt", 250, kCCTextAlignmentCenter);
+    CCMenuItemLabel * chalenge = CCMenuItemLabel::create(chaStrLabel, this, menu_selector(RunkingScene::chengeViewChalenge));
+    chalenge->setAnchorPoint(ccp(0.5f,0.5f));
+    menu->addChild(chalenge);
+    
+    chalenge->setPosition(ccp(size.width * 0.25f, 240));
+
+    //切り替えボタン
+    CCLabelBMFont * timeStrLabel = CCLabelBMFont::create("[ time trial ]", "base/little_number2.fnt", 250, kCCTextAlignmentCenter);
+    CCMenuItemLabel * timetrial = CCMenuItemLabel::create(timeStrLabel, this, menu_selector(RunkingScene::chengeViewTimeTrial));
+    timetrial->setAnchorPoint(ccp(0.5f,0.5f));
+    menu->addChild(timetrial);
+    
+    timetrial->setPosition(ccp(size.width * 0.75f, 240));
+    
+    
     //戻るボタン
-    CCLabelBMFont * backStrLabel = CCLabelBMFont::create("Back", "base/little_number2.fnt", 150, kCCTextAlignmentCenter);
+    CCLabelBMFont * backStrLabel = CCLabelBMFont::create("[ B a c k ]", "base/little_number2.fnt", 200, kCCTextAlignmentCenter);
     CCMenuItemLabel * back = CCMenuItemLabel::create(backStrLabel, this, menu_selector(RunkingScene::moveToTopScene));
     menu->addChild(back);
     
-    back->setPosition(ccp(size.width * 0.5f, 100));
+    back->setPosition(ccp(size.width * 0.5f, 200));
     
     return true;
 }
+/**
+ * チャレンジモード用のランキング
+ */
+void RunkingScene::makeChalengeRanking()
+{
+    CCNode * node;
+    while((node = this->getChildByTag(100)) != NULL)
+    {
+        node->removeFromParent();
+    }
+    
+    CCSize size =CCDirector::sharedDirector()->getWinSize();
+    //ランキングのリストを取得する
+    CC_SAFE_RELEASE_NULL(this->m_rankingList);
+    this->m_rankingList = GameRuleManager::getInstance()->getRankingList(GM_CHALENGE);
+    CC_SAFE_RETAIN(this->m_rankingList);
+    
+    CCPoint rankingPos;
+    rankingPos.x = size.width * 0.5f;
+    rankingPos.y = size.height - 120.0f;
+    
+    CCObject * obj;
+    char mojiBuff[256] = "";
+    int rankingIndex = 1;
+    CCARRAY_FOREACH(this->m_rankingList, obj)
+    {
+        CCString * moji = dynamic_cast<CCString*>(obj);
+        if(moji)
+        {
+            sprintf(mojiBuff,"%2d :",rankingIndex);
+            CCLabelBMFont * rankingNo = CCLabelBMFont::create(mojiBuff,"base/little_number2.fnt", 100, kCCTextAlignmentLeft);
+            rankingPos.x = size.width * 0.25f;
+            rankingNo->setAnchorPoint(CCPointZero);
+            rankingNo->setPosition(rankingPos);
+            rankingNo->setTag(100);
+            this->addChild(rankingNo,10);
+            
+            sprintf(mojiBuff,"Q. %6d",moji->intValue());
+            CCLabelBMFont * rankingStr = CCLabelBMFont::create(mojiBuff,"base/little_number2.fnt", 200, kCCTextAlignmentRight);
+            rankingPos.x = size.width * 0.5f;
+            rankingStr->setAnchorPoint(CCPointZero);
+            rankingStr->setPosition(rankingPos);
+            rankingStr->setTag(100);
+            this->addChild(rankingStr,10);
+            
+            rankingPos.y -= 45;
+            
+            //次のランキング
+            rankingIndex++;
+        }
+    }
+}
+
+/**
+ * トライアルモード用のランキング
+ */
+void RunkingScene::makeTimeTrialRanking()
+{
+    CCNode * node;
+    while((node = this->getChildByTag(100)) != NULL)
+    {
+        node->removeFromParent();
+    }
+    
+    CCSize size =CCDirector::sharedDirector()->getWinSize();
+    //ランキングのリストを取得する
+    CC_SAFE_RELEASE_NULL(this->m_rankingList);
+    this->m_rankingList = GameRuleManager::getInstance()->getRankingList(GM_CHALENGE);
+    CC_SAFE_RETAIN(this->m_rankingList);
+    
+    CCPoint rankingPos;
+    rankingPos.x = size.width * 0.5f;
+    rankingPos.y = size.height - 120.0f;
+    
+    CCObject * obj;
+    char mojiBuff[256] = "";
+    int rankingIndex = 1;
+    CCARRAY_FOREACH(this->m_rankingList, obj)
+    {
+        CCString * moji = dynamic_cast<CCString*>(obj);
+        if(moji)
+        {
+            sprintf(mojiBuff,"%2d :",rankingIndex);
+            CCLabelBMFont * rankingNo = CCLabelBMFont::create(mojiBuff,"base/little_number2.fnt", 100, kCCTextAlignmentLeft);
+            rankingPos.x = size.width * 0.25f;
+            rankingNo->setAnchorPoint(CCPointZero);
+            rankingNo->setPosition(rankingPos);
+            rankingNo->setTag(100);
+            this->addChild(rankingNo,10);
+            
+            sprintf(mojiBuff," %6d sec",moji->intValue());
+            CCLabelBMFont * rankingStr = CCLabelBMFont::create(mojiBuff,"base/little_number2.fnt", 200, kCCTextAlignmentRight);
+            rankingPos.x = size.width * 0.5f;
+            rankingStr->setAnchorPoint(CCPointZero);
+            rankingStr->setPosition(rankingPos);
+            rankingStr->setTag(100);
+            this->addChild(rankingStr,10);
+            
+            rankingPos.y -= 45;
+            
+            //次のランキング
+            rankingIndex++;
+        }
+    }
+}
+void RunkingScene::chengeViewChalenge(cocos2d::CCObject sender)
+{
+    this->makeChalengeRanking();
+}
+void RunkingScene::chengeViewTimeTrial(cocos2d::CCObject sender)
+{
+    this->makeTimeTrialRanking();
+}
+
 /**
  * メインメニューに戻る
  */

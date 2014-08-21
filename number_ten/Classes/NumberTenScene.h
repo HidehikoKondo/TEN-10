@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "ButtonFactory.h"
+#include "QuestionCounterNode.h"
 
 #define DEF_MAX_STAGE (10)
 /**
@@ -42,6 +43,8 @@ protected:
     cocos2d::CCLabelBMFont * m_InputNumber;
     
     cocos2d::CCMenu * m_menu;
+    
+    QuestionCounterNode * m_QuestionCounter;
     
     /**
      * 記号ボタンの設定
@@ -82,6 +85,10 @@ public:
      */
     void onTapButton(cocos2d::CCObject* obj);
     
+    /**
+     * ゲームオーバー
+     */
+    void viewGameOverLayer();
 
 };
 #endif /* defined(__number_ten__NumberTenScene__) */

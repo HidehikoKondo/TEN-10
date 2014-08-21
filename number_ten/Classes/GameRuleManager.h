@@ -34,12 +34,12 @@ public:
     /**
      * ランキングの情報を取得する
      */
-    cocos2d::CCArray * getRankingList(GAME_MODE);
+    cocos2d::CCArray * getRankingList(GAME_MODE mode);
 
     /**
      * ランキングのスコアを登録する
      */
-    void setRankingScore(long value);
+    void setRankingScore(GAME_MODE mode,long value);
 };
 
 #endif /* defined(__number_ten__GameRuleManager__) */

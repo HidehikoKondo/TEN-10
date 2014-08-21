@@ -290,6 +290,8 @@
 		57BE6DA818B900CE004514A8 /* ShuttleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DA618B900CE004514A8 /* ShuttleScene.cpp */; };
 		57BE6DAF18B902B8004514A8 /* SelectMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DAD18B902B8004514A8 /* SelectMenuScene.cpp */; };
 		57C0DB3D19A3BE3D00DB7D31 /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */; };
+		57C0DB4019A5EEDD00DB7D31 /* TimeCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3E19A5EEDD00DB7D31 /* TimeCounterNode.cpp */; };
+		57C0DB4319A5EF0A00DB7D31 /* QuestionCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -908,6 +910,10 @@
 		57BE6DAE18B902B8004514A8 /* SelectMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMenuScene.h; sourceTree = "<group>"; };
 		57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverLayer.cpp; sourceTree = "<group>"; };
 		57C0DB3C19A3BE3D00DB7D31 /* GameOverLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverLayer.h; sourceTree = "<group>"; };
+		57C0DB3E19A5EEDD00DB7D31 /* TimeCounterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeCounterNode.cpp; sourceTree = "<group>"; };
+		57C0DB3F19A5EEDD00DB7D31 /* TimeCounterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCounterNode.h; sourceTree = "<group>"; };
+		57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuestionCounterNode.cpp; sourceTree = "<group>"; };
+		57C0DB4219A5EF0A00DB7D31 /* QuestionCounterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCounterNode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -947,6 +953,10 @@
 				570A754219928CDB00B8144F /* RunkingScene.h */,
 				57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */,
 				57C0DB3C19A3BE3D00DB7D31 /* GameOverLayer.h */,
+				57C0DB3E19A5EEDD00DB7D31 /* TimeCounterNode.cpp */,
+				57C0DB3F19A5EEDD00DB7D31 /* TimeCounterNode.h */,
+				57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */,
+				57C0DB4219A5EF0A00DB7D31 /* QuestionCounterNode.h */,
 			);
 			name = NumberTenGame;
 			sourceTree = "<group>";
@@ -2287,6 +2297,8 @@
 				57AAAFDA185EBB3A00092891 /* spine-cocos2dx.cpp in Sources */,
 				57AAAD73185EBB3700092891 /* mat4.c in Sources */,
 				57AAADE6185EBB3800092891 /* CCCommon.mm in Sources */,
+				57C0DB4019A5EEDD00DB7D31 /* TimeCounterNode.cpp in Sources */,
+				57C0DB4319A5EF0A00DB7D31 /* QuestionCounterNode.cpp in Sources */,
 				57AAAFCB185EBB3A00092891 /* SkeletonData.cpp in Sources */,
 				57AAAD39185EBB3700092891 /* CCZone.cpp in Sources */,
 				57AAAE96185EBB3900092891 /* CCTextFieldTTF.cpp in Sources */,

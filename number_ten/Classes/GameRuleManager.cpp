@@ -30,14 +30,15 @@ GameRuleManager * GameRuleManager::getInstance()
 
 /**
  * ランキングの情報を取得する
+ * @return CCArray[CCString] ランキングリスト
  */
-cocos2d::CCArray * GameRuleManager::getRankingList(GAME_MODE)
+cocos2d::CCArray * GameRuleManager::getRankingList(GAME_MODE mode)
 {
     CCArray *ret = CCArray::create();
     char buff[256];
     for(int index = 0; index < 10 ; index++)
     {
-        sprintf(buff,"ranking_%02d",index);
+        sprintf(buff,"ranking_%02d_%02d",mode,index);
         int a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
         ret->addObject(CCString::createWithFormat("%d",a));
     }
@@ -48,14 +49,14 @@ cocos2d::CCArray * GameRuleManager::getRankingList(GAME_MODE)
 /**
  * ランキングのスコアを登録する
  */
-void GameRuleManager::setRankingScore(long value)
+void GameRuleManager::setRankingScore(GAME_MODE mode,long value)
 {
     //検索
     int newRecordIndex = 10;
     char buff[256];
     for(int index = 0; index < 10 ; index++)
     {
-        sprintf(buff,"ranking_%02d",index);
+        sprintf(buff,"ranking_%02d_%02d",mode,index);
         int a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
         if(a < value)
         {
@@ -68,7 +69,7 @@ void GameRuleManager::setRankingScore(long value)
     int beforeScore;
     for(int index = newRecordIndex; index < 10 ; index++)
     {
-        sprintf(buff,"ranking_%02d",index);
+        sprintf(buff,"ranking_%02d_%02d",mode,index);
         beforeScore = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
         CCUserDefault::sharedUserDefault()->setIntegerForKey(buff, afterScore);
         afterScore = beforeScore;

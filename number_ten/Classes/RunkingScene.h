@@ -13,10 +13,23 @@
 
 class RunkingScene : public cocos2d::CCLayer
 {
+protected:
+    cocos2d::CCArray * m_rankingList;
 public:
     static cocos2d::CCScene* scene();
     
     virtual bool init();
+    
+    /**
+     * チャレンジモード用のランキング
+     */
+    virtual void makeChalengeRanking();
+    
+    /**
+     * トライアルモード用のランキング
+     */
+    virtual void makeTimeTrialRanking();
+    
     /**
      * コンストラクタ
      */
@@ -28,6 +41,9 @@ public:
     
     CREATE_FUNC(RunkingScene);
     
+    
+    void chengeViewChalenge(cocos2d::CCObject sender);
+    void chengeViewTimeTrial(cocos2d::CCObject sender);
     /**
      * メインメニューに戻る
      */

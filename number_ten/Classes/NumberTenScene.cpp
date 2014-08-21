@@ -10,6 +10,8 @@
 #include "SimpleAudioEngine.h"
 #include "NativeCodeAst.h"
 #include "SoundDef.h"
+#include "GameRuleManager.h"
+#include "GameOverLayer.h"
 
 #define DEF_CENTER_OFFSET_H_VIEW_NUM  (200)
 #define DEF_CENTER_OFFSET_H_INP_NUM   (0)
@@ -29,6 +31,8 @@ NumberTenScene::NumberTenScene()
 ,m_AnserDigit(4)
 ,m_buttonEnter(NULL)
 ,m_buttonBS(NULL)
+,m_QuestionNumber(NULL)
+,m_QuestionCounter(NULL)
 {
     this->m_buttonNumber = CCArray::create();
     CC_SAFE_RETAIN(this->m_buttonNumber);
@@ -96,6 +100,21 @@ bool NumberTenScene::init()
     this->m_buttonBS->setTarget(this, menu_selector(NumberTenScene::onTapButton));
     this->m_buttonBS->setPosition(ccp(size.width / 4 * 3 ,size.height * 0.5f + DEF_CENTER_OFFSET_H_BTN_ENT));
     this->m_menu->addChild(this->m_buttonBS);
+
+    this->m_QuestionCounter = QuestionCounterNode::create();
+    this->m_QuestionCounter->setTarget(this, callfunc_selector(NumberTenScene::viewGameOverLayer));
+    this->addChild(this->m_QuestionCounter,100);
+    
+    //ゲームモードによる設定
+    if(GM_CHALENGE == GameRuleManager::getInstance()->getGameMode())
+    {
+        this->m_QuestionCounter->setCountMax(99);
+    }
+    else
+    {
+        //タイムトライアル
+        this->m_QuestionCounter->setCountMax(10);
+    }
     
     //記号ボタンの設定
     this->initStageMarker();
@@ -388,5 +407,14 @@ void NumberTenScene::checkNumber()
     }
 }
 
+/**
+ * ゲームオーバー
+ */
+void NumberTenScene::viewGameOverLayer()
+{
+    GameOverLayer * layer = GameOverLayer::create();
+    this->addChild(layer,100000);
+    layer->setPosition(CCPointZero);
+}
 
 

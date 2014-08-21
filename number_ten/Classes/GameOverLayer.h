@@ -14,8 +14,14 @@
 class GameOverLayer : public cocos2d::CCLayer
 {
 protected:
+    cocos2d::CCSprite * m_GameOverString;
     
 public:
+    GameOverLayer();
+    virtual ~GameOverLayer();
+    
+    CREATE_FUNC(GameOverLayer);
     virtual bool init();
+    
 };
 #endif /* defined(__number_ten__GameOverLayer__) */
