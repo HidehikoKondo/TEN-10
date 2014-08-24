@@ -1,6 +1,6 @@
 package jp.nagohiyo.number_ten;
 
-import com.nagohiyo.number_ten.R;
+import jp.nagohiyo.number_ten.R;
 
 import android.util.DisplayMetrics;
 import android.util.Log;

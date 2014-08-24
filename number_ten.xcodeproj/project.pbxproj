@@ -303,6 +303,7 @@
 		570A754119928CDB00B8144F /* RunkingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunkingScene.cpp; sourceTree = "<group>"; };
 		570A754219928CDB00B8144F /* RunkingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunkingScene.h; sourceTree = "<group>"; };
 		570A75441992923B00B8144F /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
+		5777437819A9C1FE00A5A779 /* NativeTweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeTweet.h; sourceTree = "<group>"; };
 		577C57E0193F818C00CBEBE6 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = number_ten/Resources/sound; sourceTree = SOURCE_ROOT; };
 		577C57E2193F830100CBEBE6 /* SoundDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundDef.h; sourceTree = "<group>"; };
 		578FBF9F1965AD5700448379 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
@@ -951,6 +952,7 @@
 			children = (
 				5798D941193BAE2C00111632 /* NativeCodeAst.h */,
 				577C57E2193F830100CBEBE6 /* SoundDef.h */,
+				5777437819A9C1FE00A5A779 /* NativeTweet.h */,
 			);
 			path = common;
 			sourceTree = "<group>";

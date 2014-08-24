@@ -17,6 +17,8 @@ class GameOverLayer : public cocos2d::CCLayerColor
 protected:
     cocos2d::CCSprite * m_GameOverString;
     
+    long m_score;
+    
 public:
     GameOverLayer();
     virtual ~GameOverLayer();
@@ -30,6 +32,8 @@ public:
     void entoryRecord(GAME_MODE mode,long value);
     
     void moveToTitle();
+    
+    void onTweet();
     
 };
 #endif /* defined(__number_ten__GameOverLayer__) */

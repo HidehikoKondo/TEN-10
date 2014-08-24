@@ -25,6 +25,7 @@ package jp.nagohiyo.number_ten;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class number_ten extends Cocos2dxActivity{
@@ -38,6 +39,13 @@ public class number_ten extends Cocos2dxActivity{
 		 
 	}
 	
+	public static void tweet(String $msg){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, $msg);
+        _activity.startActivity(intent);
+    }	
     static {
          System.loadLibrary("game");
     }
