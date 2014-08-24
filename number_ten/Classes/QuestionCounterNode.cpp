@@ -54,10 +54,10 @@ void QuestionCounterNode::setTarget(CCObject* target,cocos2d::SEL_CallFunc func)
  */
 void QuestionCounterNode::countUp()
 {
+    this->m_count++;
+    
     if(this->m_count < this->m_CountMax)
-    {
-        this->m_count++;
-        
+    {        
         char buff[256];
         sprintf(buff, "Q.%2ld",this->m_count);
         this->m_CountStrLablel->setString(buff);
@@ -77,4 +77,8 @@ void QuestionCounterNode::countUp()
 void QuestionCounterNode::resetCounter()
 {
     this->m_count = 1;
+}
+long QuestionCounterNode::getCounterValue()
+{
+    return this->m_count - 1;
 }

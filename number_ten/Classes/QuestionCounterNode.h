@@ -42,6 +42,11 @@ public:
      * カウンターをリセットする
      */
     void resetCounter();
+
+    /**
+     * カウンターの数値を取得
+     */
+    long getCounterValue();
 };
 
 #endif /* defined(__number_ten__QuestionCounterNode__) */

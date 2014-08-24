@@ -119,6 +119,8 @@ void TimeCounterNode::resetCounter()
     {
         this->m_count = 0;
     }
+    
+    this->viewReflesh();
 }
 /**
  * タイマーを開始する
@@ -136,5 +138,12 @@ void TimeCounterNode::start()
 void TimeCounterNode::stop()
 {
     this->stopAllActions();
+}
+/**
+ * カウンターの数値を取得
+ */
+long TimeCounterNode::getCounterValue()
+{
+    return this->m_count;
 }
 

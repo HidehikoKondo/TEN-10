@@ -40,6 +40,11 @@ public:
      * ランキングのスコアを登録する
      */
     void setRankingScore(GAME_MODE mode,long value);
+    
+    /**
+     * ランキングの登録がされるか
+     */
+    bool isNewRecordScore(GAME_MODE mode,long value);
 };
 
 #endif /* defined(__number_ten__GameRuleManager__) */

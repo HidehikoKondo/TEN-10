@@ -58,9 +58,11 @@ void GameRuleManager::setRankingScore(GAME_MODE mode,long value)
     {
         sprintf(buff,"ranking_%02d_%02d",mode,index);
         int a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
-        if(a < value)
+        if( (mode == GM_CHALENGE && a < value) ||
+            (mode == GM_TIME_TRIAL && a > value))
         {
             newRecordIndex = index;
+            break;
         }
     }
 
@@ -74,4 +76,24 @@ void GameRuleManager::setRankingScore(GAME_MODE mode,long value)
         CCUserDefault::sharedUserDefault()->setIntegerForKey(buff, afterScore);
         afterScore = beforeScore;
     }
+}
+/**
+ * ランキングの登録がされるか
+ */
+bool GameRuleManager::isNewRecordScore(GAME_MODE mode,long value)
+{
+    bool ret = false;
+    char buff[256];
+    for(int index = 0; index < 10 ; index++)
+    {
+        sprintf(buff,"ranking_%02d_%02d",mode,index);
+        int a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
+        if(a < value)
+        {
+            ret = true;
+            break;
+        }
+    }
+    
+    return ret;
 }

@@ -10,6 +10,7 @@
 #define __number_ten__GameOverLayer__
 
 #include "cocos2d.h"
+#include "GameRuleManager.h"
 
 class GameOverLayer : public cocos2d::CCLayerColor
 {
@@ -22,6 +23,13 @@ public:
     
     CREATE_FUNC(GameOverLayer);
     virtual bool init();
+
+    /**
+     * 記録の登録
+     */
+    void entoryRecord(GAME_MODE mode,long value);
+    
+    void moveToTitle();
     
 };
 #endif /* defined(__number_ten__GameOverLayer__) */

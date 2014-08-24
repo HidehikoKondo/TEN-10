@@ -19,6 +19,11 @@
 #define DEF_CENTER_OFFSET_H_BTN_MARK  (-200)
 #define DEF_CENTER_OFFSET_H_BTN_ENT  (-300)
 
+#define DEF_CHALENGE_MAX (30.0f)
+#define DEF_CHALENGE_DOWN_COUNT (10)
+#define DEF_CHALENGE_DOWN_TIME (5.0f)
+#define DEF_CHALENGE_DOWN_MIN_TIME (10)
+
 using namespace cocos2d;
 using namespace CocosDenshion;
 
@@ -34,6 +39,7 @@ NumberTenScene::NumberTenScene()
 ,m_QuestionNumber(NULL)
 ,m_QuestionCounter(NULL)
 ,m_TimerCounter(NULL)
+,m_QuestionData(NULL)
 {
     this->m_buttonNumber = CCArray::create();
     CC_SAFE_RETAIN(this->m_buttonNumber);
@@ -50,6 +56,7 @@ NumberTenScene::~NumberTenScene()
     CC_SAFE_RELEASE_NULL(this->m_buttonNumber);
     CC_SAFE_RELEASE_NULL(this->m_buttonMarker);
     CC_SAFE_RELEASE_NULL(this->m_usedButtonList);
+    CC_SAFE_RELEASE_NULL(this->m_QuestionData);
 }
 
 CCScene* NumberTenScene::scene()
@@ -119,7 +126,7 @@ bool NumberTenScene::init()
     if(GM_CHALENGE == GameRuleManager::getInstance()->getGameMode())
     {
         this->m_QuestionCounter->setCountMax(99);
-        this->m_TimerCounter->setCountMax(10);
+        this->m_TimerCounter->setCountMax(DEF_CHALENGE_MAX);
         this->m_TimerCounter->setTimerMode(TM_COUNT_DOWN);
     }
     else
@@ -134,6 +141,11 @@ bool NumberTenScene::init()
     this->m_TimerCounter->resetCounter();
     this->m_TimerCounter->start();
     
+    //問題データ
+    CC_SAFE_RELEASE_NULL(this->m_QuestionData);
+    this->m_QuestionData = CCArray::createWithContentsOfFile("base/q_data.plist");
+    CC_SAFE_RETAIN(this->m_QuestionData);
+    
     //記号ボタンの設定
     this->initStageMarker();
     
@@ -141,6 +153,8 @@ bool NumberTenScene::init()
     this->stageInitSet();
     
     //音声ファイル読み込み
+    SimpleAudioEngine::sharedEngine()->preloadEffect(DEF_SE_GAME_OVER);
+    SimpleAudioEngine::sharedEngine()->preloadEffect(DEF_SE_GOOD);
     SimpleAudioEngine::sharedEngine()->preloadEffect(DEF_SE_RUSH);
     
     return true;
@@ -189,10 +203,25 @@ void NumberTenScene::stageInitSet()
     CCSize size = CCDirector::sharedDirector()->getWinSize();
     
     //ステージの問題を引っ張ってくる
-    long ans = rand()%9999;
+    CCDictionary* data = dynamic_cast<CCDictionary*>(this->m_QuestionData->randomObject());
+    CCString * str = dynamic_cast<CCString*>(data->objectForKey("question"));
+    char workMoji[5] = "";
     char moji[5] = "";
-    sprintf(moji, "%04ld", ans);
+    memset(moji, '\0', 5);
+    sprintf(workMoji, "%04d", str->intValue());
     
+    //並び替え
+    long chengeCount = 0;
+    while (chengeCount<4)
+    {
+        long index =rand()%4;
+        if(workMoji[index] != '\0')
+        {
+            moji[chengeCount] = workMoji[index];
+            workMoji[index] = '\0';
+            chengeCount++;
+        }
+    }
     char viewMoji[10] = "";
     if(this->m_AnserDigit == 4)
     {
@@ -262,9 +291,6 @@ void NumberTenScene::onTapButton(cocos2d::CCObject* obj)
     CCMenuItem * menuItem = dynamic_cast<CCMenuItem*>(obj);
     if(NULL == menuItem)return;
     
-    //使用済みボタンとして登録する
-    this->m_usedButtonList->addObject(menuItem);
-
     //大丈夫なボダンなら
     SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_RUSH);
     
@@ -277,7 +303,11 @@ void NumberTenScene::onTapButton(cocos2d::CCObject* obj)
     if(this->m_AnserType[this->m_InputCount] == NBT_BACK)
     {
         //入力を取り消す
-        if(this->m_InputCount>0)this->m_InputCount--;
+        if(this->m_InputCount>0)
+        {
+            this->m_InputCount--;
+            this->m_usedButtonList->removeObject(this->m_usedButtonList->lastObject());
+        }
     }
     else if(this->m_AnserType[this->m_InputCount] == NBT_ENTER)
     {
@@ -286,6 +316,10 @@ void NumberTenScene::onTapButton(cocos2d::CCObject* obj)
     }
     else
     {
+        
+        //使用済みボタンとして登録する
+        this->m_usedButtonList->addObject(menuItem);
+        
         this->m_InputCount++;
     }
     
@@ -406,7 +440,16 @@ void NumberTenScene::checkNumber()
         {
             case NBT_TASU:ans += this->m_AnserType[index+1];break;
             case NBT_HIKU:ans -= this->m_AnserType[index+1];break;
-            case NBT_WARU:ans /= this->m_AnserType[index+1];break;
+            case NBT_WARU:
+                if(this->m_AnserType[index+1] != 0)
+                {
+                    ans /= this->m_AnserType[index+1];
+                }
+                else
+                {
+                    ans = 0;
+                }
+                break;
             case NBT_KAKERU:ans *= this->m_AnserType[index+1];break;
             default:break;
         }
@@ -416,16 +459,32 @@ void NumberTenScene::checkNumber()
     {
         CCLOG("正解");
         
+        //正解アニメーション
+        this->startGoodAnimation();
+        
         //次の問題に行く
         this->stageInitSet();
         
         //カウントアップ
         this->m_QuestionCounter->countUp();
         
+        //押されたボタンの記憶
+        this->m_usedButtonList->removeAllObjects();
+        
         //タイマーの設定
         if(GameRuleManager::getInstance()->getGameMode() == GM_CHALENGE)
         {
             this->m_TimerCounter->stop();
+            //一定問題数毎に制限時間を減らす
+            if(this->m_QuestionCounter->getCounterValue() % DEF_CHALENGE_DOWN_COUNT == 0)
+            {
+                long max = DEF_CHALENGE_MAX - (DEF_CHALENGE_DOWN_TIME * this->m_QuestionCounter->getCounterValue() / DEF_CHALENGE_DOWN_COUNT);
+                if(max < DEF_CHALENGE_DOWN_MIN_TIME)
+                {
+                    max = DEF_CHALENGE_DOWN_MIN_TIME;
+                }
+                this->m_TimerCounter->setCountMax(max);
+            }
             this->m_TimerCounter->resetCounter();
             this->m_TimerCounter->start();
         }
@@ -433,7 +492,72 @@ void NumberTenScene::checkNumber()
     else
     {
         CCLOG("失敗");
+        
+        this->startBadAnimation();
     }
+}
+
+/**
+ * 正解
+ */
+void NumberTenScene::startGoodAnimation()
+{
+    //効果音
+    SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_GOOD);
+
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    CCPoint defaultPos = ccp(size.width * 0.5f, size.height * 0.5f + 50.0f);
+    
+    CCSprite * animeSprite = CCSprite::create("base/good_label.png");
+    animeSprite->setPosition(ccpAdd(defaultPos, ccp(0,-100)));
+    animeSprite->setOpacity(0);
+    this->addChild(animeSprite,1000);
+    CCArray * seq1 = CCArray::create();
+    CCArray * seq2 = CCArray::create();
+    
+    seq1->addObject(CCFadeIn::create(0.125f));
+    seq1->addObject(CCScaleTo::create(0.125f, 1.15f));
+    seq1->addObject(CCScaleTo::create(0.125f, 1.0f));
+    
+    seq2->addObject(CCMoveTo::create(0.25f, defaultPos));
+    seq2->addObject(CCMoveTo::create(0.125f, ccp(defaultPos.x,defaultPos.y - 10) ) );
+    seq2->addObject(CCMoveTo::create(0.125f, defaultPos));
+    seq2->addObject(CCCallFunc::create(animeSprite, callfunc_selector(CCSprite::removeFromParent)));
+
+    animeSprite->runAction(CCSpawn::createWithTwoActions(CCSequence::create(seq1),
+                                                         CCSequence::create(seq2)));
+}
+/**
+ * 失敗
+ */
+void NumberTenScene::startBadAnimation()
+{
+    //効果音
+    SimpleAudioEngine::sharedEngine()->playEffect(DEF_SE_BAD);
+    
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    
+    CCPoint defaultPos = ccp(size.width * 0.5f, size.height * 0.5f + 50.0f);
+    
+    CCSprite * animeSprite = CCSprite::create("base/bad_label.png");
+    animeSprite->setPosition(ccpAdd(defaultPos, ccp(0,100)));
+    animeSprite->setOpacity(0);
+    this->addChild(animeSprite,1000);
+    
+    CCArray * seq1 = CCArray::create();
+    CCArray * seq2 = CCArray::create();
+    
+    seq1->addObject(CCFadeIn::create(0.125f));
+    seq1->addObject(CCRotateTo::create(0.125f, 25.0f));
+    seq1->addObject(CCFadeOut::create(0.125f));
+    
+    seq2->addObject(CCMoveTo::create(0.25f, defaultPos));
+    seq2->addObject(CCMoveTo::create(0.125f, ccp(defaultPos.x,defaultPos.y + 10) ) );
+    seq2->addObject(CCMoveTo::create(0.125f, ccpSub(defaultPos,ccp(0,100))));
+    seq2->addObject(CCCallFunc::create(animeSprite, callfunc_selector(CCSprite::removeFromParent)));
+    
+    animeSprite->runAction(CCSpawn::createWithTwoActions(CCSequence::create(seq1),
+                                                         CCSequence::create(seq2)));
 }
 
 /**
@@ -441,12 +565,25 @@ void NumberTenScene::checkNumber()
  */
 void NumberTenScene::viewGameOverLayer()
 {
+    //タイマーを停止する
+    this->m_TimerCounter->stop();
+    
     //全部のボタンを押せなくする
     this->m_menu->setEnabled(false);
     
     GameOverLayer * layer = GameOverLayer::create();
     this->addChild(layer,100000);
     layer->setPosition(CCPointZero);
+    
+    //スコアの登録
+    if(GameRuleManager::getInstance()->getGameMode() == GM_CHALENGE)
+    {
+        layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_QuestionCounter->getCounterValue());
+    }
+    else
+    {
+        layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_TimerCounter->getCounterValue());
+    }
 }
 
 

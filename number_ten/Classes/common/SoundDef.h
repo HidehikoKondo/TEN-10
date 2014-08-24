@@ -12,7 +12,10 @@
 
 #define DEF_SE_SELECT       ("sound/select.mp3")
 #define DEF_SE_RUSH         ("sound/rush.mp3")
-#define DEF_SE_TAKEOFF      ("sound/takeoff.mp3")
-#define DEF_SE_ROCKET_READY ("sound/rocketReady.mp3")
+#define DEF_SE_GOOD         ("sound/good_se.mp3")
+#define DEF_SE_BAD          ("sound/bad_se.mp3")
+#define DEF_SE_GAME_OVER    ("sound/game_over.mp3")
+#define DEF_SE_NEW_RECORD   ("sound/new_record.mp3")
+
 
 #endif

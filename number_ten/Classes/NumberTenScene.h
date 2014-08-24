@@ -47,7 +47,9 @@ protected:
     
     QuestionCounterNode * m_QuestionCounter;
     TimeCounterNode * m_TimerCounter;
-    
+   
+    //問題
+    cocos2d::CCArray * m_QuestionData;
     /**
      * 記号ボタンの設定
      */
@@ -66,7 +68,16 @@ protected:
      * クリアチェック
      */
     virtual void checkNumber();
-        
+    
+    /**
+     * 正解
+     */
+    virtual void startGoodAnimation();
+    /**
+     * 失敗
+     */
+    virtual void startBadAnimation();
+    
 public:
     static cocos2d::CCScene* scene();
     

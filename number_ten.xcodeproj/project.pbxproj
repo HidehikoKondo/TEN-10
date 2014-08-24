@@ -17,14 +17,10 @@
 		570A754319928CDB00B8144F /* RunkingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 570A754119928CDB00B8144F /* RunkingScene.cpp */; };
 		570A75451992923B00B8144F /* title in Resources */ = {isa = PBXBuildFile; fileRef = 570A75441992923B00B8144F /* title */; };
 		577C57E1193F818C00CBEBE6 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 577C57E0193F818C00CBEBE6 /* sound */; };
-		5785DA3319359FD600E15900 /* CountNumberSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5785DA3119359FD600E15900 /* CountNumberSprite.cpp */; };
 		578FBFA11965AD5700448379 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBF9F1965AD5700448379 /* TitleScene.cpp */; };
 		578FBFA51969731300448379 /* NumberTenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBFA31969731300448379 /* NumberTenScene.cpp */; };
 		578FBFA71970D84100448379 /* button in Resources */ = {isa = PBXBuildFile; fileRef = 578FBFA61970D84100448379 /* button */; };
 		578FBFAA1971323400448379 /* ButtonFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBFA81971323400448379 /* ButtonFactory.cpp */; };
-		5798D939193988B400111632 /* SmorkManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5798D937193988B400111632 /* SmorkManager.cpp */; };
-		5798D93C193B823100111632 /* ScoreLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5798D93A193B823100111632 /* ScoreLayer.cpp */; };
-		57A2A7291933AEF1001322C2 /* ShuttleModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57A2A7271933AEF1001322C2 /* ShuttleModel.cpp */; };
 		57AAACA4185EBB3600092891 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAACA3185EBB3600092891 /* QuartzCore.framework */; };
 		57AAACA6185EBB3600092891 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAACA5185EBB3600092891 /* OpenGLES.framework */; };
 		57AAACA8185EBB3600092891 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAACA7185EBB3600092891 /* OpenAL.framework */; };
@@ -287,7 +283,6 @@
 		57AAB041185EBB3B00092891 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AAB040185EBB3B00092891 /* libwebsockets.a */; };
 		57AAB047185EBB3B00092891 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57AAB046185EBB3B00092891 /* AppDelegate.cpp */; };
 		57AAB04A185EBB3B00092891 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57AAB049185EBB3B00092891 /* HelloWorldScene.cpp */; };
-		57BE6DA818B900CE004514A8 /* ShuttleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DA618B900CE004514A8 /* ShuttleScene.cpp */; };
 		57BE6DAF18B902B8004514A8 /* SelectMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57BE6DAD18B902B8004514A8 /* SelectMenuScene.cpp */; };
 		57C0DB3D19A3BE3D00DB7D31 /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */; };
 		57C0DB4019A5EEDD00DB7D31 /* TimeCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3E19A5EEDD00DB7D31 /* TimeCounterNode.cpp */; };
@@ -310,8 +305,6 @@
 		570A75441992923B00B8144F /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
 		577C57E0193F818C00CBEBE6 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = number_ten/Resources/sound; sourceTree = SOURCE_ROOT; };
 		577C57E2193F830100CBEBE6 /* SoundDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundDef.h; sourceTree = "<group>"; };
-		5785DA3119359FD600E15900 /* CountNumberSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CountNumberSprite.cpp; sourceTree = "<group>"; };
-		5785DA3219359FD600E15900 /* CountNumberSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountNumberSprite.h; sourceTree = "<group>"; };
 		578FBF9F1965AD5700448379 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		578FBFA01965AD5700448379 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		578FBFA31969731300448379 /* NumberTenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberTenScene.cpp; sourceTree = "<group>"; };
@@ -319,13 +312,7 @@
 		578FBFA61970D84100448379 /* button */ = {isa = PBXFileReference; lastKnownFileType = folder; path = button; sourceTree = "<group>"; };
 		578FBFA81971323400448379 /* ButtonFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonFactory.cpp; sourceTree = "<group>"; };
 		578FBFA91971323400448379 /* ButtonFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonFactory.h; sourceTree = "<group>"; };
-		5798D937193988B400111632 /* SmorkManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SmorkManager.cpp; sourceTree = "<group>"; };
-		5798D938193988B400111632 /* SmorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmorkManager.h; sourceTree = "<group>"; };
-		5798D93A193B823100111632 /* ScoreLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreLayer.cpp; sourceTree = "<group>"; };
-		5798D93B193B823100111632 /* ScoreLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLayer.h; sourceTree = "<group>"; };
 		5798D941193BAE2C00111632 /* NativeCodeAst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeCodeAst.h; sourceTree = "<group>"; };
-		57A2A7271933AEF1001322C2 /* ShuttleModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShuttleModel.cpp; sourceTree = "<group>"; };
-		57A2A7281933AEF1001322C2 /* ShuttleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuttleModel.h; sourceTree = "<group>"; };
 		57AAACA0185EBB3600092891 /* number_ten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = number_ten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AAACA3185EBB3600092891 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		57AAACA5185EBB3600092891 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -904,8 +891,6 @@
 		57AAB046185EBB3B00092891 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		57AAB048185EBB3B00092891 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		57AAB049185EBB3B00092891 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		57BE6DA618B900CE004514A8 /* ShuttleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShuttleScene.cpp; sourceTree = "<group>"; };
-		57BE6DA718B900CE004514A8 /* ShuttleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuttleScene.h; sourceTree = "<group>"; };
 		57BE6DAD18B902B8004514A8 /* SelectMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectMenuScene.cpp; sourceTree = "<group>"; };
 		57BE6DAE18B902B8004514A8 /* SelectMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMenuScene.h; sourceTree = "<group>"; };
 		57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverLayer.cpp; sourceTree = "<group>"; };
@@ -2163,7 +2148,6 @@
 			children = (
 				578FBFA2196972E600448379 /* NumberTenGame */,
 				5798D940193BAE1A00111632 /* common */,
-				57BE6DAC18B90288004514A8 /* ShuttleGame */,
 				57BE6DAB18B90174004514A8 /* SelectMenu */,
 				57BE6DAA18B90106004514A8 /* Logo */,
 				57BE6DA918B900DD004514A8 /* Title */,
@@ -2200,23 +2184,6 @@
 				57BE6DAE18B902B8004514A8 /* SelectMenuScene.h */,
 			);
 			name = SelectMenu;
-			sourceTree = "<group>";
-		};
-		57BE6DAC18B90288004514A8 /* ShuttleGame */ = {
-			isa = PBXGroup;
-			children = (
-				57A2A7271933AEF1001322C2 /* ShuttleModel.cpp */,
-				57A2A7281933AEF1001322C2 /* ShuttleModel.h */,
-				57BE6DA618B900CE004514A8 /* ShuttleScene.cpp */,
-				57BE6DA718B900CE004514A8 /* ShuttleScene.h */,
-				5785DA3119359FD600E15900 /* CountNumberSprite.cpp */,
-				5785DA3219359FD600E15900 /* CountNumberSprite.h */,
-				5798D937193988B400111632 /* SmorkManager.cpp */,
-				5798D938193988B400111632 /* SmorkManager.h */,
-				5798D93A193B823100111632 /* ScoreLayer.cpp */,
-				5798D93B193B823100111632 /* ScoreLayer.h */,
-			);
-			name = ShuttleGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2357,13 +2324,11 @@
 				57AAAFA4185EBB3A00092891 /* AnimationStateData.cpp in Sources */,
 				57AAB017185EBB3B00092891 /* cpSlideJoint.c in Sources */,
 				57AAAE4C185EBB3800092891 /* CCSpriteBatchNode.cpp in Sources */,
-				57BE6DA818B900CE004514A8 /* ShuttleScene.cpp in Sources */,
 				57AAAF4F185EBB3A00092891 /* CCControlPotentiometer.cpp in Sources */,
 				57AAADAE185EBB3700092891 /* CCClippingNode.cpp in Sources */,
 				57AAAD83185EBB3700092891 /* vec4.c in Sources */,
 				57AAB023185EBB3B00092891 /* cpCollision.c in Sources */,
 				57AAAF8E185EBB3A00092891 /* HttpClient.cpp in Sources */,
-				5798D939193988B400111632 /* SmorkManager.cpp in Sources */,
 				57AAAFA7185EBB3A00092891 /* Atlas.cpp in Sources */,
 				57AAAD29185EBB3700092891 /* CCGeometry.cpp in Sources */,
 				57AAACE2185EBB3600092891 /* CCActionEase.cpp in Sources */,
@@ -2375,7 +2340,6 @@
 				57AAAF93185EBB3A00092891 /* WebSocket.cpp in Sources */,
 				57AAAD1A185EBB3700092891 /* CCArray.cpp in Sources */,
 				57AAAE9D185EBB3900092891 /* CCTextureAtlas.cpp in Sources */,
-				5798D93C193B823100111632 /* ScoreLayer.cpp in Sources */,
 				57AAAD97185EBB3700092891 /* CCLayer.cpp in Sources */,
 				57AAB00B185EBB3B00092891 /* cpGrooveJoint.c in Sources */,
 				57AAAFA1185EBB3A00092891 /* AnimationState.cpp in Sources */,
@@ -2484,7 +2448,6 @@
 				57AAB00D185EBB3B00092891 /* cpPinJoint.c in Sources */,
 				57AAAE02185EBB3800092891 /* EAGLView.mm in Sources */,
 				57AAACF7185EBB3700092891 /* CCActionProgressTimer.cpp in Sources */,
-				5785DA3319359FD600E15900 /* CountNumberSprite.cpp in Sources */,
 				57AAAEE5185EBB3900092891 /* CCBAnimationManager.cpp in Sources */,
 				57AAADD0185EBB3800092891 /* CCFileUtils.cpp in Sources */,
 				57AAAEA6185EBB3900092891 /* CCTexturePVR.cpp in Sources */,
@@ -2536,7 +2499,6 @@
 				57AAAD0D185EBB3700092891 /* CCDirector.cpp in Sources */,
 				57AAACDF185EBB3600092891 /* CCActionCatmullRom.cpp in Sources */,
 				57AAAF7B185EBB3A00092891 /* CCScrollView.cpp in Sources */,
-				57A2A7291933AEF1001322C2 /* ShuttleModel.cpp in Sources */,
 				57AAAE5C185EBB3800092891 /* CCPointExtension.cpp in Sources */,
 				57AAAF28185EBB3A00092891 /* CCScale9SpriteLoader.cpp in Sources */,
 				57AAAE65185EBB3900092891 /* ccUtils.cpp in Sources */,

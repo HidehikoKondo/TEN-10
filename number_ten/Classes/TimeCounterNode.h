@@ -63,5 +63,10 @@ public:
      * タイマーを停止する
      */
     void stop();
+    
+    /**
+     * カウンターの数値を取得
+     */
+    long getCounterValue();
 };
 #endif /* defined(__number_ten__TimeCounterNode__) */
