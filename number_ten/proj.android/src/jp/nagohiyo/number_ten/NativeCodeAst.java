@@ -19,7 +19,7 @@ public class NativeCodeAst {
     private static final int DEVICE_BASE_WIDTH = 320;
 
     // __TEST__の部分にはメディア識別コードを入れてください
-    private static final String _MEDIA_CODE = "ast01235ypzxm21q4ta8";
+    private static final String _MEDIA_CODE = "ast01235el25qdga154l";
 
     private static IconLoader<Integer> _iconLoader;
     private static RelativeLayout _adMain;

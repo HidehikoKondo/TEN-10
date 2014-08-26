@@ -36,6 +36,7 @@ NumberTenScene::NumberTenScene()
 ,m_AnserDigit(4)
 ,m_buttonEnter(NULL)
 ,m_buttonBS(NULL)
+,m_buttonGiveUp(NULL)
 ,m_QuestionNumber(NULL)
 ,m_QuestionCounter(NULL)
 ,m_TimerCounter(NULL)
@@ -98,6 +99,15 @@ bool NumberTenScene::init()
     this->addChild(this->m_menu);
     this->m_menu->setPosition(ccp(0,0));
     
+    //ギブアップボタン
+    CCSprite * normalSprite = CCSprite::create("button/btn_giveup.png");
+    CCSprite * selectSprite = CCSprite::create("button/btn_giveup.png");
+    this->m_buttonGiveUp = CCMenuItemSprite::create(normalSprite, selectSprite);
+    this->m_buttonGiveUp->setTarget(this, menu_selector(NumberTenScene::viewGiveupDialog));
+    this->m_buttonGiveUp->setPosition(ccp(10.0f + this->m_buttonGiveUp->getContentSize().width * 0.5f,
+                                          size.height - this->m_buttonGiveUp->getContentSize().height - 40.0f));
+    this->m_menu->addChild(this->m_buttonGiveUp);
+    
     //エンター
     this->m_buttonEnter = ButtonFactory::createButton(NBT_ENTER);
     this->m_buttonEnter->setTarget(this, menu_selector(NumberTenScene::onTapButton));
@@ -108,7 +118,7 @@ bool NumberTenScene::init()
     this->m_buttonBS->setTarget(this, menu_selector(NumberTenScene::onTapButton));
     this->m_buttonBS->setPosition(ccp(size.width / 4 * 3 ,size.height * 0.5f + DEF_CENTER_OFFSET_H_BTN_ENT));
     this->m_menu->addChild(this->m_buttonBS);
-
+    
     //問題数用ラベル
     this->m_QuestionCounter = QuestionCounterNode::create();
     this->m_QuestionCounter->setTarget(this, callfunc_selector(NumberTenScene::viewGameOverLayer));
@@ -158,6 +168,12 @@ bool NumberTenScene::init()
     SimpleAudioEngine::sharedEngine()->preloadEffect(DEF_SE_RUSH);
     
     return true;
+}
+/**
+ * ギブアップしますかダイアログの出力
+ */
+void NumberTenScene::viewGiveupDialog()
+{
 }
 /**
  * 記号ボタンの設定

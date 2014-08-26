@@ -39,6 +39,8 @@ protected:
     cocos2d::CCMenuItem * m_buttonEnter;
     cocos2d::CCMenuItem * m_buttonBS;
     
+    cocos2d::CCMenuItem * m_buttonGiveUp;
+    
     cocos2d::CCLabelBMFont * m_QuestionNumber;
     
     cocos2d::CCLabelBMFont * m_InputNumber;
@@ -77,6 +79,11 @@ protected:
      * 失敗
      */
     virtual void startBadAnimation();
+    
+    /**
+     * ギブアップしますかダイアログの出力
+     */
+    virtual void viewGiveupDialog();
     
 public:
     static cocos2d::CCScene* scene();
