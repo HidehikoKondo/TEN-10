@@ -49,13 +49,13 @@ bool GameOverLayer::init()
     this->addChild(menu);
 
     //ツイートボタン
-    CCLabelBMFont * labelTweet = CCLabelBMFont::create("[ T w e e t ]", "base/little_number2.fnt", 240, kCCTextAlignmentCenter);
+    CCLabelBMFont * labelTweet = CCLabelBMFont::create("[ Tweet ]", "base/little_number2.fnt", 240, kCCTextAlignmentCenter);
     CCMenuItemLabel * labelTw = CCMenuItemLabel::create(labelTweet, this, menu_selector(GameOverLayer::onTweet));
     labelTw->setPosition(ccp(size.width * 0.5f,300));
     menu->addChild(labelTw);
     
     //戻るボタン
-    CCLabelBMFont * labelBM = CCLabelBMFont::create("[ T i t l e ]", "base/little_number2.fnt", 200, kCCTextAlignmentCenter);
+    CCLabelBMFont * labelBM = CCLabelBMFont::create("[ Title ]", "base/little_number2.fnt", 200, kCCTextAlignmentCenter);
     CCMenuItemLabel * label = CCMenuItemLabel::create(labelBM, this, menu_selector(GameOverLayer::moveToTitle));
     
     label->setPosition(ccp(size.width * 0.5f,200));

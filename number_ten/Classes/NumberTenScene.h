@@ -13,6 +13,7 @@
 #include "ButtonFactory.h"
 #include "QuestionCounterNode.h"
 #include "TimeCounterNode.h"
+#include "DialogLayer.h"
 
 #define DEF_MAX_STAGE (10)
 /**
@@ -49,6 +50,8 @@ protected:
     
     QuestionCounterNode * m_QuestionCounter;
     TimeCounterNode * m_TimerCounter;
+    
+    DialogLayer * m_dialog;
    
     //問題
     cocos2d::CCArray * m_QuestionData;
@@ -109,6 +112,8 @@ public:
      * ゲームオーバー
      */
     void viewGameOverLayer();
+    
+    void onDialogResult(DIALOG_RESULT type);
 
 };
 #endif /* defined(__number_ten__NumberTenScene__) */

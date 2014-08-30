@@ -70,7 +70,7 @@ bool RunkingScene::init()
     this->makeChalengeRanking();
     
     //切り替えボタン
-    CCLabelBMFont * chaStrLabel = CCLabelBMFont::create("[ Chalenge ]", "base/little_number2.fnt", 250, kCCTextAlignmentCenter);
+    CCLabelBMFont * chaStrLabel = CCLabelBMFont::create("[ CHALENGE ]", "base/little_number2.fnt", 300, kCCTextAlignmentCenter);
     CCMenuItemLabel * chalenge = CCMenuItemLabel::create(chaStrLabel, this, menu_selector(RunkingScene::chengeViewChalenge));
     chalenge->setAnchorPoint(ccp(0.5f,0.5f));
     menu->addChild(chalenge);
@@ -78,7 +78,7 @@ bool RunkingScene::init()
     chalenge->setPosition(ccp(size.width * 0.25f, 240));
 
     //切り替えボタン
-    CCLabelBMFont * timeStrLabel = CCLabelBMFont::create("[ time trial ]", "base/little_number2.fnt", 250, kCCTextAlignmentCenter);
+    CCLabelBMFont * timeStrLabel = CCLabelBMFont::create("[ TIME TRIAL ]", "base/little_number2.fnt", 300, kCCTextAlignmentCenter);
     CCMenuItemLabel * timetrial = CCMenuItemLabel::create(timeStrLabel, this, menu_selector(RunkingScene::chengeViewTimeTrial));
     timetrial->setAnchorPoint(ccp(0.5f,0.5f));
     menu->addChild(timetrial);
@@ -87,7 +87,7 @@ bool RunkingScene::init()
     
     
     //戻るボタン
-    CCLabelBMFont * backStrLabel = CCLabelBMFont::create("[ B a c k ]", "base/little_number2.fnt", 200, kCCTextAlignmentCenter);
+    CCLabelBMFont * backStrLabel = CCLabelBMFont::create("[ BACK ]", "base/little_number2.fnt", 250, kCCTextAlignmentCenter);
     CCMenuItemLabel * back = CCMenuItemLabel::create(backStrLabel, this, menu_selector(RunkingScene::moveToTopScene));
     menu->addChild(back);
     
@@ -162,7 +162,7 @@ void RunkingScene::makeTimeTrialRanking()
     CCSize size =CCDirector::sharedDirector()->getWinSize();
     //ランキングのリストを取得する
     CC_SAFE_RELEASE_NULL(this->m_rankingList);
-    this->m_rankingList = GameRuleManager::getInstance()->getRankingList(GM_CHALENGE);
+    this->m_rankingList = GameRuleManager::getInstance()->getRankingList(GM_TIME_TRIAL);
     CC_SAFE_RETAIN(this->m_rankingList);
     
     CCPoint rankingPos;

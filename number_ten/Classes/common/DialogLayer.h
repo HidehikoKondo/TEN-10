@@ -18,21 +18,37 @@ typedef enum _DIALOG_STYLE_TYPE
     DST_OK_CANCEL,
 }DIALOG_STYLE_TYPE;
 
-typedef enum _DIALOG_RESULT_TYPE
+typedef enum _DIALOG_RESULT
 {
     DRT_OK,
     DRT_CANCEL,
     DRT_YES,
     DRT_NO,
-};
+}DIALOG_RESULT;
+
+typedef void (cocos2d::CCObject::*SEL_DialogResult)(DIALOG_RESULT);
+#define dialog_result_selecter(_SELECTOR) (SEL_DialogResult)(&_SELECTOR)
 
 class DialogLayer : public cocos2d::CCLayerColor
 {
+protected:
+    cocos2d::CCObject * m_target;
+    SEL_DialogResult m_callback;
+    
+    cocos2d::CCLabelBMFont * m_title;
+    cocos2d::CCLabelBMFont * m_description;
+    
+    cocos2d::CCMenu * m_menu;
+    
+    cocos2d::CCLayerColor * m_window;
+    
+    void onTapMenu(cocos2d::CCObject * sender);
+    
 public:
     DialogLayer();
-    ~DialogLayer();
-    static DialogLayer * create(const char * title,const char * defein ,DIALOG_STYLE_TYPE type);
-    virtual bool init(const char * title,const char * defein ,DIALOG_STYLE_TYPE type);
+    virtual ~DialogLayer();
+    static DialogLayer * create(const char * title,const char * Description ,DIALOG_STYLE_TYPE type,cocos2d::CCObject* target, SEL_DialogResult callback);
+    virtual bool init(const char * title,const char * description ,DIALOG_STYLE_TYPE type,cocos2d::CCObject* target, SEL_DialogResult callback);
 };
 
 #endif /* defined(__number_ten__DialogLayer__) */

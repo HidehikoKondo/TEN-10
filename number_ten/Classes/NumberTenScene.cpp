@@ -101,7 +101,7 @@ bool NumberTenScene::init()
     
     //ギブアップボタン
     CCSprite * normalSprite = CCSprite::create("button/btn_giveup.png");
-    CCSprite * selectSprite = CCSprite::create("button/btn_giveup.png");
+    CCSprite * selectSprite = CCSprite::create("button/btn_giveup_select.png");
     this->m_buttonGiveUp = CCMenuItemSprite::create(normalSprite, selectSprite);
     this->m_buttonGiveUp->setTarget(this, menu_selector(NumberTenScene::viewGiveupDialog));
     this->m_buttonGiveUp->setPosition(ccp(10.0f + this->m_buttonGiveUp->getContentSize().width * 0.5f,
@@ -132,15 +132,20 @@ bool NumberTenScene::init()
                                           size.height - this->m_QuestionCounter->getContentSize().height));
     this->addChild(this->m_TimerCounter,100);
     
+    CCLabelBMFont * mode = CCLabelBMFont::create("CHALENGE", "base/little_number2.fnt", 400, kCCTextAlignmentCenter);
+    mode->setPosition(ccp(size.width * 0.5f,size.height - mode->getContentSize().height * 0.5f));
+    this->addChild(mode);
     //ゲームモードによる設定
     if(GM_CHALENGE == GameRuleManager::getInstance()->getGameMode())
     {
+        mode->setString("CHALENGE");
         this->m_QuestionCounter->setCountMax(99);
         this->m_TimerCounter->setCountMax(DEF_CHALENGE_MAX);
         this->m_TimerCounter->setTimerMode(TM_COUNT_DOWN);
     }
     else
     {
+        mode->setString("TIME TRIAL");
         //タイムトライアル
         this->m_QuestionCounter->setCountMax(10);
         //99分99秒
@@ -174,6 +179,10 @@ bool NumberTenScene::init()
  */
 void NumberTenScene::viewGiveupDialog()
 {
+    this->m_dialog = DialogLayer::create("GIVE UP", "The end of the game?", DST_YES_NO,
+                                         this, dialog_result_selecter(NumberTenScene::onDialogResult));
+    this->addChild(this->m_dialog,INT_MAX);
+    this->m_dialog->setPosition(CCPointZero);
 }
 /**
  * 記号ボタンの設定
@@ -601,5 +610,14 @@ void NumberTenScene::viewGameOverLayer()
         layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_TimerCounter->getCounterValue());
     }
 }
+void NumberTenScene::onDialogResult(DIALOG_RESULT type)
+{
+    if(type == DRT_OK || type == DRT_YES)
+    {
+        this->viewGameOverLayer();
+    }
+    this->m_dialog->removeFromParent();
+}
+
 
 
