@@ -36,6 +36,11 @@ public:
     void moveSceneToTimeTrial(CCObject*obj);
     void moveSceneToRanking(CCObject*obj);
     
+    /**
+     * 問題のチェック
+     */
+    bool questionCheck(char * nokori_moji,char * question_string);
+    
 };
 
 #endif /* defined(__TreeTest__TitleScene__) */

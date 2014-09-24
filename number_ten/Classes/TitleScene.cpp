@@ -123,6 +123,13 @@ bool TitleScene::init()
 
     return true;
 }
+
+/**
+ * 問題のチェック
+ */
+bool questionCheck(char * nokori_moji,char * question_string);
+
+
 void TitleScene::viewHelp()
 {
     CCSize size = CCDirector::sharedDirector()->getWinSize();
