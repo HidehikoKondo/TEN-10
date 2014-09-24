@@ -57,9 +57,9 @@ bool TitleScene::init()
     // position the sprite on the center of the screen
     pSprite->setPosition( ccp(size.width/2, size.height*0.75f) );
     
-    CCMenu * StartMenu = CCMenu::create();
-    StartMenu->setPosition(CCPointZero);
-    this->addChild(StartMenu);
+    this->m_StartMenu = CCMenu::create();
+    this->m_StartMenu->setPosition(CCPointZero);
+    this->addChild(this->m_StartMenu);
 
     //チャレンジボタン
     CCSprite* pChallengeImg = CCSprite::create("title/button_challenge.png");
@@ -67,9 +67,9 @@ bool TitleScene::init()
     pChallengeImg_sel->setScale(1.05f);
     CCMenuItemSprite* challengeButton = CCMenuItemSprite::create(pChallengeImg,pChallengeImg_sel, this, menu_selector(TitleScene::moveSceneToChallenge));
     challengeButton->setAnchorPoint(ccp(0.5f,0.5f));
-    challengeButton->setPosition(ccp(size.width/2,size.height * 0.45f));
+    challengeButton->setPosition(ccp(size.width/2,size.height * 0.55f));
     challengeButton->setScale(0.5f);
-    StartMenu->addChild(challengeButton);
+    this->m_StartMenu->addChild(challengeButton);
 
     //タイムトライアルボタン
     CCSprite* pTimeImg = CCSprite::create("title/button_time_trial.png");
@@ -77,9 +77,9 @@ bool TitleScene::init()
     pTimeImg_sel->setScale(1.05f);
     CCMenuItemSprite* timeButton = CCMenuItemSprite::create(pTimeImg,pTimeImg_sel, this, menu_selector(TitleScene::moveSceneToTimeTrial));
     timeButton->setAnchorPoint(ccp(0.5f,0.5f));
-    timeButton->setPosition(ccp(size.width/2,size.height * 0.35f));
+    timeButton->setPosition(ccp(size.width/2,size.height * 0.45f));
     timeButton->setScale(0.5f);
-    StartMenu->addChild(timeButton);
+    this->m_StartMenu->addChild(timeButton);
     
     //ランキングボタン
     CCSprite* pRankingImg = CCSprite::create("title/button_ranking.png");
@@ -87,18 +87,63 @@ bool TitleScene::init()
     pRankingImg_sel->setScale(1.05f);
     CCMenuItemSprite* rankingButton = CCMenuItemSprite::create(pRankingImg,pRankingImg_sel, this, menu_selector(TitleScene::moveSceneToRanking));
     rankingButton->setAnchorPoint(ccp(0.5f,0.5f));
-    rankingButton->setPosition(ccp(size.width/2,size.height * 0.25f));
+    rankingButton->setPosition(ccp(size.width/2,size.height * 0.35f));
     rankingButton->setScale(0.5f);
-    StartMenu->addChild(rankingButton);
+    this->m_StartMenu->addChild(rankingButton);
+
+    //HELP
+    CCSprite* pHelpImg = CCSprite::create("title/button_help.png");
+    CCSprite* pHelpImg_sel = CCSprite::create("title/button_help.png");
+    pHelpImg_sel->setScale(1.05f);
+    CCMenuItemSprite* helpButton = CCMenuItemSprite::create(pHelpImg,pHelpImg_sel, this, menu_selector(TitleScene::viewHelp));
+    helpButton->setAnchorPoint(ccp(0.5f,0.5f));
+    helpButton->setPosition(ccp(size.width/2,size.height * 0.25f));
+    helpButton->setScale(0.5f);
+    this->m_StartMenu->addChild(helpButton);
+    
     
     // add the sprite as a child to this layer
     this->addChild(pSprite, 0);
 
     //音声ファイル読み込み
     SimpleAudioEngine::sharedEngine()->preloadEffect(DEF_SE_SELECT);
-    
+
+    //ファイルのチェック
+    CCObject * obj;
+    CCArray *questionData = CCArray::createWithContentsOfFile("base/q_data.plist");
+    CCARRAY_FOREACH(questionData, obj)
+    {
+        CCDictionary* data = dynamic_cast<CCDictionary*>(obj);
+        CCString * str = dynamic_cast<CCString*>(data->objectForKey("question"));
+        char workMoji[5] = "";
+        char moji[5] = "";
+        memset(moji, '\0', 5);
+        sprintf(workMoji, "%04d", str->intValue());
+    }
+
     return true;
 }
+void TitleScene::viewHelp()
+{
+    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    
+    HelpLayer * layer = HelpLayer::create(this, dialog_result_selecter(TitleScene::onHelpResult));
+    this->addChild(layer,1000);
+    layer->setPosition(ccp(size.width * 0.5f,size.height * 0.5f));
+    layer->setTag(555555);
+    
+    this->m_StartMenu->setEnabled(false);
+}
+void TitleScene::onHelpResult(DIALOG_RESULT ret)
+{
+    HelpLayer * layer = dynamic_cast<HelpLayer*>(this->getChildByTag(555555));
+    if(layer)
+    {
+        layer->removeFromParent();
+    }
+    this->m_StartMenu->setEnabled(true);
+}
+
 /**
  * 選択画面にいく
  */

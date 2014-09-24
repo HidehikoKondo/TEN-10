@@ -16,6 +16,7 @@
 		570A754019928B0B00B8144F /* GameRuleManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 570A753E19928B0B00B8144F /* GameRuleManager.cpp */; };
 		570A754319928CDB00B8144F /* RunkingScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 570A754119928CDB00B8144F /* RunkingScene.cpp */; };
 		570A75451992923B00B8144F /* title in Resources */ = {isa = PBXBuildFile; fileRef = 570A75441992923B00B8144F /* title */; };
+		57694BA819D2E915005DF1FA /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57694BA619D2E915005DF1FA /* HelpLayer.cpp */; };
 		5777437B19ACFDDF00A5A779 /* DialogLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5777437919ACFDDF00A5A779 /* DialogLayer.cpp */; };
 		577C57E1193F818C00CBEBE6 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 577C57E0193F818C00CBEBE6 /* sound */; };
 		578FBFA11965AD5700448379 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBF9F1965AD5700448379 /* TitleScene.cpp */; };
@@ -303,6 +304,8 @@
 		570A754119928CDB00B8144F /* RunkingScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RunkingScene.cpp; sourceTree = "<group>"; };
 		570A754219928CDB00B8144F /* RunkingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunkingScene.h; sourceTree = "<group>"; };
 		570A75441992923B00B8144F /* title */ = {isa = PBXFileReference; lastKnownFileType = folder; path = title; sourceTree = "<group>"; };
+		57694BA619D2E915005DF1FA /* HelpLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelpLayer.cpp; sourceTree = "<group>"; };
+		57694BA719D2E915005DF1FA /* HelpLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpLayer.h; sourceTree = "<group>"; };
 		5777437819A9C1FE00A5A779 /* NativeTweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeTweet.h; sourceTree = "<group>"; };
 		5777437919ACFDDF00A5A779 /* DialogLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogLayer.cpp; sourceTree = "<group>"; };
 		5777437A19ACFDDF00A5A779 /* DialogLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLayer.h; sourceTree = "<group>"; };
@@ -2166,6 +2169,8 @@
 			children = (
 				578FBF9F1965AD5700448379 /* TitleScene.cpp */,
 				578FBFA01965AD5700448379 /* TitleScene.h */,
+				57694BA619D2E915005DF1FA /* HelpLayer.cpp */,
+				57694BA719D2E915005DF1FA /* HelpLayer.h */,
 			);
 			name = Title;
 			sourceTree = "<group>";
@@ -2287,6 +2292,7 @@
 				57AAAF02185EBB3900092891 /* CCData.cpp in Sources */,
 				57AAB029185EBB3B00092891 /* cpShape.c in Sources */,
 				57AAAF74185EBB3A00092891 /* CCEditBoxImplTizen.cpp in Sources */,
+				57694BA819D2E915005DF1FA /* HelpLayer.cpp in Sources */,
 				57AAB037185EBB3B00092891 /* cpSweep1D.c in Sources */,
 				57AAAF0B185EBB3900092891 /* CCLayerColorLoader.cpp in Sources */,
 				57AAAD9D185EBB3700092891 /* CCTransition.cpp in Sources */,

@@ -12,6 +12,7 @@
 #include "SimpleAudioEngine.h"
 #include "TitleScene.h"
 #include "NativeCodeAst.h"
+#include "SplashScene.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -93,7 +94,11 @@ bool AppDelegate::applicationDidFinishLaunching()
     pDirector->setAnimationInterval(1.0 / 60);
 
     // create a scene. it's an autorelease object
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     CCScene *pScene = TitleScene::scene();
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCScene *pScene = SplashScene::scene();
+#endif
 
     // run
     pDirector->runWithScene(pScene);

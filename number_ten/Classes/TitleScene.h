@@ -10,9 +10,12 @@
 #define __TreeTest__TitleScene__
 
 #include "cocos2d.h"
+#include "HelpLayer.h"
 
 class TitleScene : public cocos2d::CCLayer
 {
+protected:
+    cocos2d::CCMenu * m_StartMenu;
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();
@@ -26,6 +29,8 @@ public:
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(TitleScene);
 
+    void viewHelp();
+    void onHelpResult(DIALOG_RESULT ret);
     void NextScene(CCObject*obj);
     void moveSceneToChallenge(CCObject*obj);
     void moveSceneToTimeTrial(CCObject*obj);
