@@ -614,6 +614,7 @@ void NumberTenScene::viewGameOverLayer()
     }
     else
     {
+        if(this->m_QuestionCounter->getCounterValue()== 10)
         layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_TimerCounter->getCounterValue());
     }
 }

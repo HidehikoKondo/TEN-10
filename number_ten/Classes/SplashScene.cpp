@@ -43,7 +43,7 @@ bool SplashScene::init()
     CCSize size = CCDirector::sharedDirector()->getWinSize();
     
     //ロゴ
-    CCSprite* pSprite = CCSprite::create("Default-568h@2x.png");
+    CCSprite* pSprite = CCSprite::create("logo/Default-568h@2x.png");
     pSprite->setPosition( ccp(size.width/2, size.height/2) );
     
     // add the sprite as a child to this layer

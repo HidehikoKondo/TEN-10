@@ -185,7 +185,7 @@ void RunkingScene::makeTimeTrialRanking()
             rankingNo->setTag(100);
             this->addChild(rankingNo,10);
             
-            sprintf(mojiBuff," %6d sec",moji->intValue());
+            sprintf(mojiBuff,"%2ld:%02d",static_cast<long>(moji->intValue()/60),moji->intValue()%60);
             CCLabelBMFont * rankingStr = CCLabelBMFont::create(mojiBuff,"base/little_number2.fnt", 200, kCCTextAlignmentRight);
             rankingPos.x = size.width * 0.5f;
             rankingStr->setAnchorPoint(CCPointZero);

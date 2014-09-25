@@ -57,12 +57,23 @@ void GameRuleManager::setRankingScore(GAME_MODE mode,long value)
     for(int index = 0; index < 10 ; index++)
     {
         sprintf(buff,"ranking_%02d_%02d",mode,index);
-        int a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
-        if( (mode == GM_CHALENGE && a < value) ||
-            (mode == GM_TIME_TRIAL && a > value))
+        if( mode == GM_CHALENGE)
         {
-            newRecordIndex = index;
-            break;
+            unsigned long a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, 0);
+            if( a < value)
+            {
+                newRecordIndex = index;
+                break;
+            }
+        }
+        else if( mode == GM_TIME_TRIAL)
+        {
+            unsigned long a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, ULONG_LONG_MAX);
+            if( a > value)
+            {
+                newRecordIndex = index;
+                break;
+            }
         }
     }
 
