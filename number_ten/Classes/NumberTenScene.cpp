@@ -226,15 +226,22 @@ void NumberTenScene::initStageMarker()
 void NumberTenScene::stageInitSet()
 {
     CCSize size = CCDirector::sharedDirector()->getWinSize();
-    
-    //ステージの問題を引っ張ってくる
-    CCDictionary* data = dynamic_cast<CCDictionary*>(this->m_QuestionData->randomObject());
-    CCString * str = dynamic_cast<CCString*>(data->objectForKey("question"));
+
     char workMoji[5] = "";
     char moji[5] = "";
     memset(moji, '\0', 5);
-    sprintf(workMoji, "%04d", str->intValue());
     
+    do
+    {
+        //ステージの問題を引っ張ってくる
+        CCDictionary* data = dynamic_cast<CCDictionary*>(this->m_QuestionData->randomObject());
+        CCString * str = dynamic_cast<CCString*>(data->objectForKey("question"));
+        sprintf(workMoji, "%04d", str->intValue());
+        //回答文字列の初期化
+        sprintf(this->m_AnserString,"");
+    }
+    while(!GameRuleManager::getInstance()->questionCheck(this->m_AnserString,this->m_AnserString,workMoji));
+        
     //並び替え
     long chengeCount = 0;
     while (chengeCount<4)

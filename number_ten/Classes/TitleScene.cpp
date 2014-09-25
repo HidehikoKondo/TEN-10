@@ -119,24 +119,20 @@ bool TitleScene::init()
         char moji[5] = "";
         memset(moji, '\0', 5);
         sprintf(workMoji, "%04d", str->intValue());
+        
+        //問題に回答があるかチェックする
+        char ques_moji[12] = "";
+        GameRuleManager::getInstance()->questionCheck(ques_moji,ques_moji,workMoji);
     }
 
     return true;
 }
 
-/**
- * 問題のチェック
- */
-bool questionCheck(char * nokori_moji,char * question_string);
-
-
 void TitleScene::viewHelp()
 {
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
-    
     HelpLayer * layer = HelpLayer::create(this, dialog_result_selecter(TitleScene::onHelpResult));
     this->addChild(layer,1000);
-    layer->setPosition(ccp(size.width * 0.5f,size.height * 0.5f));
+    layer->setPosition(CCPointZero);
     layer->setTag(555555);
     
     this->m_StartMenu->setEnabled(false);

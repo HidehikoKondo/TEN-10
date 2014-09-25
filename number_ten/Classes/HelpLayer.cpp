@@ -56,8 +56,8 @@ bool HelpLayer::init(cocos2d::CCObject* target,
     CCSize WinSize = m_window->getContentSize();
     
     this->m_viewImg = CCSprite::create("title/helpViewString.png");
-    this->addChild(this->m_viewImg);
-    this->m_viewImg->setPosition(ccp(WinSize.width * 0.5f,WinSize.height * 0.5f + 80));
+    m_window->addChild(this->m_viewImg);
+    this->m_viewImg->setPosition(ccp(WinSize.width * 0.5f,WinSize.height * 0.5f + 40));
     
     m_menu = CCMenu::create();
     m_menu->setContentSize(m_window->getContentSize());

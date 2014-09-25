@@ -97,3 +97,95 @@ bool GameRuleManager::isNewRecordScore(GAME_MODE mode,long value)
     
     return ret;
 }
+
+/**
+ * 問題のチェック
+ * @note 再起呼び出しによる、問題の作成
+ * @param question_wk 回答一例の出力先のポインタ
+ * @param question_write_ptr 回答一例の書き出しポインタ
+ * @param nokori_moji 残りの問題文字列
+ */
+bool GameRuleManager::questionCheck(char * question_wk ,char * question_write_ptr,char * nokori_moji,double ans,bool first)
+{
+    bool ret = false;
+    long index = 0;
+    
+    //取り出す数値が無い場合最後の文字
+    if(*nokori_moji == '\0')
+    {
+        if(ans != 10)
+        {
+            return false;
+        }
+        CCLOG("%s OK",question_wk);
+        //問題が合っている
+        return true;
+    }
+    
+    //残りの数値を全パターンチェックする
+    while(nokori_moji[index]!='\0')
+    {
+        char buff[10] = "";
+        if(index > 0)strncpy(buff, nokori_moji, index);
+        if(nokori_moji[index+1]!='\0')strcpy(&buff[index], &nokori_moji[index+1]);
+        
+        double num = nokori_moji[index] - '0';
+        //================
+        //+
+        //================
+        double wk = ans + num;
+        if(first)
+        {
+            *(question_write_ptr) = nokori_moji[index];
+            ret = this->questionCheck(question_wk,question_write_ptr+1,buff,wk,false);
+            if(ret)break;
+        }
+        else
+        {
+            *(question_write_ptr) = '+';
+            *(question_write_ptr+1) = nokori_moji[index];
+            ret = this->questionCheck(question_wk,question_write_ptr+2,buff,wk,false);
+            if(ret)break;
+        }
+        
+        //最初の桁の場合足すのみ
+        index++;
+        if(first)continue;
+        
+        //================
+        //-
+        //================
+        wk = ans - num;
+        *(question_write_ptr) = '-';
+        ret = this->questionCheck(question_wk,question_write_ptr+2,buff,wk,false);
+        if(ret)break;
+        
+        //================
+        //*
+        //================
+        wk = ans * num;
+        *(question_write_ptr) = '*';
+        ret = this->questionCheck(question_wk,question_write_ptr+2,buff,wk,false);
+        if(ret)break;
+        
+        //================
+        //÷
+        //================
+        if(ans != 0 && num != 0)wk = ans / num;
+        else wk = 0;
+        wk = ans - num;
+        *(question_write_ptr) = '/';
+        ret = this->questionCheck(question_wk,question_write_ptr+2,buff,wk,false);
+        if(ret)break;
+        
+    }
+    
+    if(first && ret == false)
+    {
+        CCLOG("解き方が見つからない: %s",nokori_moji);
+    }
+    
+    return ret;
+}
+
+

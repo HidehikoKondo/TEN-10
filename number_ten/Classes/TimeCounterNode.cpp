@@ -31,9 +31,9 @@ bool TimeCounterNode::init()
         return false;
     }
     
-    this->setContentSize(CCSizeMake(100, 30));
+    this->setContentSize(CCSizeMake(130, 30));
     
-    this->m_CountStrLablel = CCLabelBMFont::create("00:00", "base/little_number2.fnt", 100, kCCTextAlignmentRight);
+    this->m_CountStrLablel = CCLabelBMFont::create("00:00", "base/little_number2.fnt", 130, kCCTextAlignmentRight);
     this->m_CountStrLablel->setPosition(CCPointZero);
     this->m_CountStrLablel->setAnchorPoint(CCPointZero);
     this->addChild(this->m_CountStrLablel);

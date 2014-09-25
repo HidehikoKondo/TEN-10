@@ -31,6 +31,9 @@ protected:
     //桁数
     unsigned long m_AnserDigit;
     
+    //問題の回答一例
+    char m_AnserString[12];
+    
     NUMBER_BUTTON_TYPE m_AnserType[8];
    
     cocos2d::CCArray * m_buttonNumber;    //数値ボタン

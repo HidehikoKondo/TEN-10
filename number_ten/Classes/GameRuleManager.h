@@ -45,6 +45,15 @@ public:
      * ランキングの登録がされるか
      */
     bool isNewRecordScore(GAME_MODE mode,long value);
+
+    /**
+     * 問題のチェック
+     */
+    bool questionCheck(char * question_wk ,
+                       char * question_write_ptr,
+                       char * nokori_moji,
+                       double ans = 0,bool first = true);
+    
 };
 
 #endif /* defined(__number_ten__GameRuleManager__) */
