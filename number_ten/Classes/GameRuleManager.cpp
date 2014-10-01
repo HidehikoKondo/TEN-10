@@ -7,6 +7,10 @@
 //
 
 #include "GameRuleManager.h"
+#include "AppCCloudPlugin.h"
+
+#define DEF_CHALENGE_LEADER_BOARD   (1108)
+#define DEF_TIME_TRIAL_LEADER_BOARD (1109)
 
 USING_NS_CC;
 
@@ -68,12 +72,25 @@ void GameRuleManager::setRankingScore(GAME_MODE mode,long value)
         }
         else if( mode == GM_TIME_TRIAL)
         {
-            unsigned long a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, ULONG_LONG_MAX);
+            unsigned long a = CCUserDefault::sharedUserDefault()->getIntegerForKey(buff, ULONG_MAX);
             if( a > value)
             {
                 newRecordIndex = index;
                 break;
             }
+        }
+    }
+    
+    //書き換え
+    if(newRecordIndex == 0)
+    {
+        if(mode == GM_CHALENGE)
+        {
+            AppCCloudPlugin::Gamers::setLeaderBoard(DEF_CHALENGE_LEADER_BOARD, static_cast<int>(value));
+        }
+        else if(mode == GM_TIME_TRIAL)
+        {
+            AppCCloudPlugin::Gamers::setLeaderBoard(DEF_CHALENGE_LEADER_BOARD, static_cast<float>(value));
         }
     }
 

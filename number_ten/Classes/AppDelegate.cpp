@@ -13,6 +13,9 @@
 #include "TitleScene.h"
 #include "NativeCodeAst.h"
 #include "SplashScene.h"
+#include "AppCCloudPlugin.h"
+
+#define MEDIA_KEY "07899191eb703f79a82a28a93938a0ae8dd7fe4f"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -39,6 +42,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
         AstExt::NativeCodeAst::initAst();
 #endif
+    // AppCCloudPlugin開始
+    AppCCloudPlugin::setOptions(API_GAMERS).setMK_iOS(MEDIA_KEY).start();
     
     //プラットフォーム別の設定
     TargetPlatform platform = CCApplication::sharedApplication()->getTargetPlatform();

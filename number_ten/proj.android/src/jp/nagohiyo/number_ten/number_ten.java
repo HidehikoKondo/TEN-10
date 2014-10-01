@@ -24,11 +24,12 @@ THE SOFTWARE.
 package jp.nagohiyo.number_ten;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+import net.app_c.cloud.plugin.c2dx.*;
 
 import android.content.Intent;
 import android.os.Bundle;
 
-public class number_ten extends Cocos2dxActivity{
+public class number_ten extends AppCCloudActivity{
 
 	private static number_ten _activity = null;
 

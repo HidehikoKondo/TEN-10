@@ -11,6 +11,7 @@
 #include "SimpleAudioEngine.h"
 #include "SoundDef.h"
 #include "GameRuleManager.h"
+#include "AppCCloudPlugin.h"
 
 USING_NS_CC;
 using namespace CocosDenshion;
@@ -69,13 +70,21 @@ bool RunkingScene::init()
 
     this->makeChalengeRanking();
     
+    
+    //世界ランキング
+    CCLabelBMFont * GlobalStrLabel = CCLabelBMFont::create("[ NETWORK RANKING ]", "base/little_number2.fnt", 500, kCCTextAlignmentCenter);
+    CCMenuItemLabel * Global = CCMenuItemLabel::create(GlobalStrLabel, this, menu_selector(RunkingScene::viewGlobalRanking));
+    menu->addChild(Global);
+    
+    Global->setPosition(ccp(size.width * 0.5f, 300));
+    
     //切り替えボタン
     CCLabelBMFont * chaStrLabel = CCLabelBMFont::create("[ CHALENGE ]", "base/little_number2.fnt", 300, kCCTextAlignmentCenter);
     CCMenuItemLabel * chalenge = CCMenuItemLabel::create(chaStrLabel, this, menu_selector(RunkingScene::chengeViewChalenge));
     chalenge->setAnchorPoint(ccp(0.5f,0.5f));
     menu->addChild(chalenge);
     
-    chalenge->setPosition(ccp(size.width * 0.25f, 240));
+    chalenge->setPosition(ccp(size.width * 0.25f, 260));
 
     //切り替えボタン
     CCLabelBMFont * timeStrLabel = CCLabelBMFont::create("[ TIME TRIAL ]", "base/little_number2.fnt", 300, kCCTextAlignmentCenter);
@@ -83,7 +92,7 @@ bool RunkingScene::init()
     timetrial->setAnchorPoint(ccp(0.5f,0.5f));
     menu->addChild(timetrial);
     
-    timetrial->setPosition(ccp(size.width * 0.75f, 240));
+    timetrial->setPosition(ccp(size.width * 0.75f, 260));
     
     
     //戻るボタン
@@ -91,8 +100,8 @@ bool RunkingScene::init()
     CCMenuItemLabel * back = CCMenuItemLabel::create(backStrLabel, this, menu_selector(RunkingScene::moveToTopScene));
     menu->addChild(back);
     
-    back->setPosition(ccp(size.width * 0.5f, 200));
-    
+    back->setPosition(ccp(size.width * 0.5f, 220));
+
     return true;
 }
 /**
@@ -207,6 +216,10 @@ void RunkingScene::chengeViewChalenge(cocos2d::CCObject sender)
 void RunkingScene::chengeViewTimeTrial(cocos2d::CCObject sender)
 {
     this->makeTimeTrialRanking();
+}
+void RunkingScene::viewGlobalRanking(cocos2d::CCObject sender)
+{
+    AppCCloudPlugin::Gamers::showGamersView();
 }
 
 /**

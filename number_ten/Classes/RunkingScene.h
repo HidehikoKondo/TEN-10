@@ -44,6 +44,8 @@ public:
     
     void chengeViewChalenge(cocos2d::CCObject sender);
     void chengeViewTimeTrial(cocos2d::CCObject sender);
+    
+    void viewGlobalRanking(cocos2d::CCObject sender);
     /**
      * メインメニューに戻る
      */
