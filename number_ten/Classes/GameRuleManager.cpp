@@ -90,7 +90,7 @@ void GameRuleManager::setRankingScore(GAME_MODE mode,long value)
         }
         else if(mode == GM_TIME_TRIAL)
         {
-            AppCCloudPlugin::Gamers::setLeaderBoard(DEF_CHALENGE_LEADER_BOARD, static_cast<float>(value));
+            AppCCloudPlugin::Gamers::setLeaderBoard(DEF_TIME_TRIAL_LEADER_BOARD, static_cast<float>(value));
         }
     }
 
