@@ -9,8 +9,8 @@
 #include "GameRuleManager.h"
 #include "AppCCloudPlugin.h"
 
-#define DEF_CHALENGE_LEADER_BOARD   (1108)
-#define DEF_TIME_TRIAL_LEADER_BOARD (1109)
+#define DEF_CHALENGE_LEADER_BOARD   (1116)
+#define DEF_TIME_TRIAL_LEADER_BOARD (1117)
 
 USING_NS_CC;
 
