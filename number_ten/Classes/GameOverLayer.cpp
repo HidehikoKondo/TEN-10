@@ -115,18 +115,18 @@ void GameOverLayer::onTweet()
     std::string tweetStr;
     if(GameRuleManager::getInstance()->getGameMode() == GM_CHALENGE )
     {
-        tweetStr += "[TEN] \'Chalenge Mode\' ";
+        tweetStr += "[TEN -10- ] \'CHALENGE MODE\' ";
     }
     else
     {
-        tweetStr += "[TEN]\'Time Trial Mode\' ";
+        tweetStr += "[TEN -10- ]\'TIME TRIAL MODE\' ";
     }
 
     //文言
     char buff[30];
     if(GameRuleManager::getInstance()->getGameMode() == GM_CHALENGE)
     {
-        sprintf(buff,"Q.%2ld",this->m_score);
+        sprintf(buff,"Q.%2ld CREAR!!",this->m_score);
     }
     else
     {

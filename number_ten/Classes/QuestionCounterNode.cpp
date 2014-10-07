@@ -56,7 +56,7 @@ void QuestionCounterNode::countUp()
 {
     this->m_count++;
     
-    if(this->m_count < this->m_CountMax)
+    if(this->m_count <= this->m_CountMax)
     {        
         char buff[256];
         sprintf(buff, "Q.%2ld",this->m_count);
