@@ -332,6 +332,7 @@
 		57C0DB3D19A3BE3D00DB7D31 /* GameOverLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3B19A3BE3D00DB7D31 /* GameOverLayer.cpp */; };
 		57C0DB4019A5EEDD00DB7D31 /* TimeCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3E19A5EEDD00DB7D31 /* TimeCounterNode.cpp */; };
 		57C0DB4319A5EF0A00DB7D31 /* QuestionCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */; };
+		9E41D0A41A13202900CF3769 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E41D0A31A13202900CF3769 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1004,6 +1005,7 @@
 		57C0DB3F19A5EEDD00DB7D31 /* TimeCounterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeCounterNode.h; sourceTree = "<group>"; };
 		57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuestionCounterNode.cpp; sourceTree = "<group>"; };
 		57C0DB4219A5EF0A00DB7D31 /* QuestionCounterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCounterNode.h; sourceTree = "<group>"; };
+		9E41D0A31A13202900CF3769 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1011,6 +1013,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E41D0A41A13202900CF3769 /* iAd.framework in Frameworks */,
 				570E74D819DB0EA800DE1E8C /* StoreKit.framework in Frameworks */,
 				570E74D619DB0E8B00DE1E8C /* CoreTelephony.framework in Frameworks */,
 				57AAACA8185EBB3600092891 /* OpenAL.framework in Frameworks */,
@@ -1164,6 +1167,7 @@
 		57AAACA2185EBB3600092891 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E41D0A31A13202900CF3769 /* iAd.framework */,
 				570E74D719DB0EA800DE1E8C /* StoreKit.framework */,
 				570E74D519DB0E8B00DE1E8C /* CoreTelephony.framework */,
 				57AAACA3185EBB3600092891 /* QuartzCore.framework */,
