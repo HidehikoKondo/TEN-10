@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "GameRuleManager.h"
+#include "AnswerPointNode.h"
 
 class GameOverLayer : public cocos2d::CCLayerColor
 {
@@ -18,6 +19,12 @@ protected:
     cocos2d::CCSprite * m_GameOverString;
     
     long m_score;
+    
+    std::string m_lastQuestion;
+    cocos2d::CCLabelBMFont * m_LastQuestionLabel;
+    cocos2d::CCMenuItem * m_LastMenuItem;
+    
+    AnswerPointNode * m_AnswerNode;
     
 public:
     GameOverLayer();
@@ -31,9 +38,13 @@ public:
      */
     void entoryRecord(GAME_MODE mode,long value);
     
+    void setLastQuestion(char* value);
+    
     void moveToTitle();
     
     void onTweet();
     
+    
+    void onUnlockQuestion();
 };
 #endif /* defined(__number_ten__GameOverLayer__) */

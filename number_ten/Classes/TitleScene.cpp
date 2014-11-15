@@ -13,6 +13,7 @@
 #include "SimpleAudioEngine.h"
 #include "NativeCodeAst.h"
 #include "SoundDef.h"
+#include "AnswerPointNode.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -100,6 +101,12 @@ bool TitleScene::init()
     helpButton->setPosition(ccp(size.width/2,size.height * 0.25f));
     helpButton->setScale(0.5f);
     this->m_StartMenu->addChild(helpButton);
+    
+    //答えポイント
+    AnswerPointNode * ansNode = AnswerPointNode::create();
+    this->addChild(ansNode,1);
+    ansNode->setAnchorPoint(ccp(1.0f,1.0f));
+    ansNode->setPosition(ccp(size.width,size.height));
     
     
     // add the sprite as a child to this layer

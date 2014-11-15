@@ -131,6 +131,15 @@ bool NumberTenScene::init()
     this->m_TimerCounter->setPosition(ccp(size.width - this->m_TimerCounter->getContentSize().width,
                                           size.height - this->m_QuestionCounter->getContentSize().height));
     this->addChild(this->m_TimerCounter,100);
+
+    //答えポイント
+    m_AnsNode = AnswerPointNode::create();
+    this->addChild(m_AnsNode,1);
+    this->m_AnsNode->setAnchorPoint(ccp(1.0f,1.0f));
+    this->m_AnsNode->setPosition(ccp(size.width,size.height));
+    this->m_AnsNode->setPosition(ccp(size.width,
+                                          m_TimerCounter->getPosition().y - this->m_AnsNode->getContentSize().height));
+    
     
     CCLabelBMFont * mode = CCLabelBMFont::create("CHALENGE", "base/little_number2.fnt", 400, kCCTextAlignmentCenter);
     mode->setPosition(ccp(size.width * 0.5f,size.height - mode->getContentSize().height * 0.5f));
@@ -500,6 +509,9 @@ void NumberTenScene::checkNumber()
         //カウントアップ
         this->m_QuestionCounter->countUp();
         
+        //答えポイントの追加
+        this->m_AnsNode->onGetAnserPoint();
+        
         //押されたボタンの記憶
         this->m_usedButtonList->removeAllObjects();
         
@@ -611,11 +623,20 @@ void NumberTenScene::viewGameOverLayer()
     if(GameRuleManager::getInstance()->getGameMode() == GM_CHALENGE)
     {
         layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_QuestionCounter->getCounterValue());
+        //最後の問題を渡す
+        layer->setLastQuestion(this->m_AnserString);
     }
     else
     {
         if(this->m_QuestionCounter->getCounterValue()== 10)
-        layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_TimerCounter->getCounterValue());
+        {
+            layer->entoryRecord(GameRuleManager::getInstance()->getGameMode(), this->m_TimerCounter->getCounterValue());
+        }
+        else
+        {
+            //最後の問題を渡す
+            layer->setLastQuestion(this->m_AnserString);
+        }
     }
 }
 void NumberTenScene::onDialogResult(DIALOG_RESULT type)

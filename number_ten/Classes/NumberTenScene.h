@@ -14,6 +14,7 @@
 #include "QuestionCounterNode.h"
 #include "TimeCounterNode.h"
 #include "DialogLayer.h"
+#include "AnswerPointNode.h"
 
 #define DEF_MAX_STAGE (10)
 /**
@@ -53,6 +54,7 @@ protected:
     
     QuestionCounterNode * m_QuestionCounter;
     TimeCounterNode * m_TimerCounter;
+    AnswerPointNode * m_AnsNode;
     
     DialogLayer * m_dialog;
    

@@ -63,6 +63,7 @@
 		57694BA819D2E915005DF1FA /* HelpLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57694BA619D2E915005DF1FA /* HelpLayer.cpp */; };
 		5777437B19ACFDDF00A5A779 /* DialogLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5777437919ACFDDF00A5A779 /* DialogLayer.cpp */; };
 		577C57E1193F818C00CBEBE6 /* sound in Resources */ = {isa = PBXBuildFile; fileRef = 577C57E0193F818C00CBEBE6 /* sound */; };
+		5782755C1A13927300497DBA /* AnswerPointNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5782755A1A13927300497DBA /* AnswerPointNode.cpp */; };
 		578FBFA11965AD5700448379 /* TitleScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBF9F1965AD5700448379 /* TitleScene.cpp */; };
 		578FBFA51969731300448379 /* NumberTenScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 578FBFA31969731300448379 /* NumberTenScene.cpp */; };
 		578FBFA71970D84100448379 /* button in Resources */ = {isa = PBXBuildFile; fileRef = 578FBFA61970D84100448379 /* button */; };
@@ -413,6 +414,8 @@
 		5777437A19ACFDDF00A5A779 /* DialogLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLayer.h; sourceTree = "<group>"; };
 		577C57E0193F818C00CBEBE6 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = number_ten/Resources/sound; sourceTree = SOURCE_ROOT; };
 		577C57E2193F830100CBEBE6 /* SoundDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundDef.h; sourceTree = "<group>"; };
+		5782755A1A13927300497DBA /* AnswerPointNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnswerPointNode.cpp; sourceTree = "<group>"; };
+		5782755B1A13927300497DBA /* AnswerPointNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerPointNode.h; sourceTree = "<group>"; };
 		578FBF9F1965AD5700448379 /* TitleScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleScene.cpp; sourceTree = "<group>"; };
 		578FBFA01965AD5700448379 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleScene.h; sourceTree = "<group>"; };
 		578FBFA31969731300448379 /* NumberTenScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberTenScene.cpp; sourceTree = "<group>"; };
@@ -1128,6 +1131,8 @@
 				57C0DB3F19A5EEDD00DB7D31 /* TimeCounterNode.h */,
 				57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */,
 				57C0DB4219A5EF0A00DB7D31 /* QuestionCounterNode.h */,
+				5782755A1A13927300497DBA /* AnswerPointNode.cpp */,
+				5782755B1A13927300497DBA /* AnswerPointNode.h */,
 			);
 			name = NumberTenGame;
 			sourceTree = "<group>";
@@ -2510,6 +2515,7 @@
 				57AAAEAA185EBB3900092891 /* CCParallaxNode.cpp in Sources */,
 				57AAB02D185EBB3B00092891 /* cpSpaceComponent.c in Sources */,
 				57AAAD17185EBB3700092891 /* CCAffineTransform.cpp in Sources */,
+				5782755C1A13927300497DBA /* AnswerPointNode.cpp in Sources */,
 				57AAACD2185EBB3600092891 /* RootViewController.mm in Sources */,
 				57AAAE59185EBB3800092891 /* CCNotificationCenter.cpp in Sources */,
 				57AAAE88185EBB3900092891 /* ioapi.cpp in Sources */,

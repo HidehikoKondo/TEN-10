@@ -21,10 +21,33 @@ class GameRuleManager : public cocos2d::CCObject
 {
     //ゲームモード
     CC_SYNTHESIZE(GAME_MODE, m_GameMode, GameMode);
+
+    //答えポイント
+    CC_SYNTHESIZE(unsigned long, m_AnswerPoint, AnswerPoint);
+
+    //答えポイント加算値
+    CC_SYNTHESIZE(unsigned long, m_AnswerAddValue, AnswerAddValue);
     
+    //答えポイント減算値
+    CC_SYNTHESIZE(unsigned long, m_AnswerSubValue, AnswerSubValue);
 public:
     GameRuleManager();
-    ~GameRuleManager();
+    virtual ~GameRuleManager();
+    
+    /**
+     * 答えポイントの追加
+     */
+    void addAnswerPoint();
+    
+    /**
+     * 答えポイントの減算
+     */
+    bool subAnswerPoint();
+
+    /**
+     * 答えポイントの減算可能化
+     */
+    bool isAnswerPointToSub();
     
     /**
      * シングルトンインスタンス

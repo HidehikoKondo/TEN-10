@@ -12,11 +12,16 @@
 #define DEF_CHALENGE_LEADER_BOARD   (1116)
 #define DEF_TIME_TRIAL_LEADER_BOARD (1117)
 
+#define DEF_ANSWER_POINT_KEY ("ANS_POINT")
+
 USING_NS_CC;
 
 GameRuleManager::GameRuleManager()
+:m_AnswerPoint(0)
+,m_AnswerAddValue(10)
+,m_AnswerSubValue(100)
 {
-    
+    this->m_AnswerPoint = CCUserDefault::sharedUserDefault()->getIntegerForKey(DEF_ANSWER_POINT_KEY, 0);
 }
 GameRuleManager::~GameRuleManager()
 {
@@ -141,6 +146,8 @@ bool GameRuleManager::questionCheck(char * question_wk ,char * question_write_pt
     //取り出す数値が無い場合最後の文字
     if(*nokori_moji == '\0')
     {
+        //最後メモリ上閉じる文字を入れる
+        *question_write_ptr = *nokori_moji;
         if(ans != 10)
         {
             return false;
@@ -216,4 +223,40 @@ bool GameRuleManager::questionCheck(char * question_wk ,char * question_write_pt
     return ret;
 }
 
+/**
+ * 答えポイントの追加
+ */
+void GameRuleManager::addAnswerPoint()
+{
+    this->m_AnswerPoint += this->m_AnswerAddValue;
+    //保存
+    CCUserDefault::sharedUserDefault()->setIntegerForKey(DEF_ANSWER_POINT_KEY, this->m_AnswerPoint);
+}
+
+/**
+ * 答えポイントの減算可能化
+ */
+bool GameRuleManager::isAnswerPointToSub()
+{
+    return (this->m_AnswerPoint > this->m_AnswerSubValue);
+}
+
+/**
+ * 答えポイントの減算
+ */
+bool GameRuleManager::subAnswerPoint()
+{
+    if(this->m_AnswerPoint - this->m_AnswerSubValue > 0)
+    {
+        this->m_AnswerPoint -= this->m_AnswerSubValue;
+        
+        //保存
+        CCUserDefault::sharedUserDefault()->setIntegerForKey(DEF_ANSWER_POINT_KEY, this->m_AnswerPoint);
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 
