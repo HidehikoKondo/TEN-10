@@ -336,7 +336,7 @@
 		9E41D0A41A13202900CF3769 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E41D0A31A13202900CF3769 /* iAd.framework */; };
 		9E6D42B21A185D1F00F31474 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6D42B11A185D1F00F31474 /* Social.framework */; };
 		9E6D42B41A185FE600F31474 /* NativeTweet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E6D42B31A185FE600F31474 /* NativeTweet.mm */; };
-		9E6D42B61A18662A00F31474 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D42B51A18662A00F31474 /* icon.png */; };
+		9E801FD51A1879B60018F51D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E801FD41A1879B60018F51D /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1014,7 +1014,7 @@
 		9E41D0A31A13202900CF3769 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		9E6D42B11A185D1F00F31474 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9E6D42B31A185FE600F31474 /* NativeTweet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeTweet.mm; sourceTree = "<group>"; };
-		9E6D42B51A18662A00F31474 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../../../Desktop/icon.png; sourceTree = "<group>"; };
+		9E801FD41A1879B60018F51D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2348,7 +2348,7 @@
 		57AAB042185EBB3B00092891 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9E6D42B51A18662A00F31474 /* icon.png */,
+				9E801FD41A1879B60018F51D /* icon.png */,
 				57AAB043185EBB3B00092891 /* Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -2430,7 +2430,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 57AAAC9B185EBB3600092891 /* Build configuration list for PBXProject "number_ten" */;
+			buildConfigurationList = 57AAAC9B185EBB3600092891 /* Build configuration list for PBXProject "number10" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2453,7 +2453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				570E74CB19DB0E1100DE1E8C /* appc_web_close@2x.png in Resources */,
-				9E6D42B61A18662A00F31474 /* icon.png in Resources */,
+				9E801FD51A1879B60018F51D /* icon.png in Resources */,
 				570A75451992923B00B8144F /* title in Resources */,
 				570E74C819DB0E1100DE1E8C /* appc_simple_bg@2x.png in Resources */,
 				570E74B519DB0E1100DE1E8C /* appc_cutin_btn_other_on@2x.png in Resources */,
@@ -2907,7 +2907,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		57AAAC9B185EBB3600092891 /* Build configuration list for PBXProject "number_ten" */ = {
+		57AAAC9B185EBB3600092891 /* Build configuration list for PBXProject "number10" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57AAB04B185EBB3B00092891 /* Debug */,
