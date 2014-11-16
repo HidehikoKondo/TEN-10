@@ -13,7 +13,7 @@
 #include "NativeTweet.h"
 
 #define DEF_APP_DL_URL_ANDROID  ("http://goo.gl/VKAoCX")
-#define DEF_APP_DL_URL_IOS      ("https://itunes.apple.com/jp/app/id942095807")
+#define DEF_APP_DL_URL_IOS      ("\n\nhttps://itunes.apple.com/jp/app/id942095807")
 
 USING_NS_CC;
 
