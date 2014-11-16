@@ -1000,7 +1000,6 @@
 		57AAB03A185EBB3B00092891 /* prime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prime.h; path = libs/chipmunk/src/prime.h; sourceTree = "<group>"; };
 		57AAB03E185EBB3B00092891 /* libwebsockets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = libwebsockets.h; path = libs/libwebsockets/ios/include/libwebsockets.h; sourceTree = "<group>"; };
 		57AAB040185EBB3B00092891 /* libwebsockets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebsockets.a; path = libs/libwebsockets/ios/lib/libwebsockets.a; sourceTree = "<group>"; };
-		57AAB043185EBB3B00092891 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		57AAB045185EBB3B00092891 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57AAB046185EBB3B00092891 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		57BE6DAD18B902B8004514A8 /* SelectMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectMenuScene.cpp; sourceTree = "<group>"; };
@@ -1015,6 +1014,7 @@
 		9E6D42B11A185D1F00F31474 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9E6D42B31A185FE600F31474 /* NativeTweet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeTweet.mm; sourceTree = "<group>"; };
 		9E801FD41A1879B60018F51D /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		9E801FD61A18893B0018F51D /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2349,7 +2349,7 @@
 			isa = PBXGroup;
 			children = (
 				9E801FD41A1879B60018F51D /* icon.png */,
-				57AAB043185EBB3B00092891 /* Prefix.pch */,
+				9E801FD61A18893B0018F51D /* Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2850,7 +2850,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2869,6 +2870,7 @@
 					"-lsqlite3",
 				);
 				PRODUCT_NAME = number_ten;
+				PROVISIONING_PROFILE = "d8db0630-84de-4806-9b26-bca6eb85a031";
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_NAME)/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2880,7 +2882,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: HIDEHIKO KONDO (7JKB5AMAKP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HIDEHIKO KONDO (7JKB5AMAKP)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/Prefix.pch";
@@ -2898,6 +2901,7 @@
 					"-lsqlite3",
 				);
 				PRODUCT_NAME = number_ten;
+				PROVISIONING_PROFILE = "d8db0630-84de-4806-9b26-bca6eb85a031";
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_NAME)/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
