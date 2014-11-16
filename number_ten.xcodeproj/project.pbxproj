@@ -334,6 +334,9 @@
 		57C0DB4019A5EEDD00DB7D31 /* TimeCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB3E19A5EEDD00DB7D31 /* TimeCounterNode.cpp */; };
 		57C0DB4319A5EF0A00DB7D31 /* QuestionCounterNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */; };
 		9E41D0A41A13202900CF3769 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E41D0A31A13202900CF3769 /* iAd.framework */; };
+		9E6D42B21A185D1F00F31474 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E6D42B11A185D1F00F31474 /* Social.framework */; };
+		9E6D42B41A185FE600F31474 /* NativeTweet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E6D42B31A185FE600F31474 /* NativeTweet.mm */; };
+		9E6D42B61A18662A00F31474 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E6D42B51A18662A00F31474 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1009,6 +1012,9 @@
 		57C0DB4119A5EF0A00DB7D31 /* QuestionCounterNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuestionCounterNode.cpp; sourceTree = "<group>"; };
 		57C0DB4219A5EF0A00DB7D31 /* QuestionCounterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCounterNode.h; sourceTree = "<group>"; };
 		9E41D0A31A13202900CF3769 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		9E6D42B11A185D1F00F31474 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		9E6D42B31A185FE600F31474 /* NativeTweet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NativeTweet.mm; sourceTree = "<group>"; };
+		9E6D42B51A18662A00F31474 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../../../Desktop/icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,6 +1022,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6D42B21A185D1F00F31474 /* Social.framework in Frameworks */,
 				9E41D0A41A13202900CF3769 /* iAd.framework in Frameworks */,
 				570E74D819DB0EA800DE1E8C /* StoreKit.framework in Frameworks */,
 				570E74D619DB0E8B00DE1E8C /* CoreTelephony.framework in Frameworks */,
@@ -1146,6 +1153,7 @@
 				5798D941193BAE2C00111632 /* NativeCodeAst.h */,
 				577C57E2193F830100CBEBE6 /* SoundDef.h */,
 				5777437819A9C1FE00A5A779 /* NativeTweet.h */,
+				9E6D42B31A185FE600F31474 /* NativeTweet.mm */,
 				5777437919ACFDDF00A5A779 /* DialogLayer.cpp */,
 				5777437A19ACFDDF00A5A779 /* DialogLayer.h */,
 			);
@@ -1172,6 +1180,7 @@
 		57AAACA2185EBB3600092891 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E6D42B11A185D1F00F31474 /* Social.framework */,
 				9E41D0A31A13202900CF3769 /* iAd.framework */,
 				570E74D719DB0EA800DE1E8C /* StoreKit.framework */,
 				570E74D519DB0E8B00DE1E8C /* CoreTelephony.framework */,
@@ -2339,6 +2348,7 @@
 		57AAB042185EBB3B00092891 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E6D42B51A18662A00F31474 /* icon.png */,
 				57AAB043185EBB3B00092891 /* Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -2414,6 +2424,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					57AAAC9F185EBB3600092891 = {
+						DevelopmentTeam = 7JKB5AMAKP;
+					};
+				};
 			};
 			buildConfigurationList = 57AAAC9B185EBB3600092891 /* Build configuration list for PBXProject "number_ten" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2438,6 +2453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				570E74CB19DB0E1100DE1E8C /* appc_web_close@2x.png in Resources */,
+				9E6D42B61A18662A00F31474 /* icon.png in Resources */,
 				570A75451992923B00B8144F /* title in Resources */,
 				570E74C819DB0E1100DE1E8C /* appc_simple_bg@2x.png in Resources */,
 				570E74B519DB0E1100DE1E8C /* appc_cutin_btn_other_on@2x.png in Resources */,
@@ -2666,6 +2682,7 @@
 				57AAADBE185EBB3800092891 /* CCParticleExamples.cpp in Sources */,
 				57AAAD86185EBB3700092891 /* CCKeypadDelegate.cpp in Sources */,
 				57AAAFD7185EBB3A00092891 /* SlotData.cpp in Sources */,
+				9E6D42B41A185FE600F31474 /* NativeTweet.mm in Sources */,
 				57AAAEB6185EBB3900092891 /* CCTMXTiledMap.cpp in Sources */,
 				578FBFAA1971323400448379 /* ButtonFactory.cpp in Sources */,
 				57AAAF61185EBB3A00092891 /* CCInvocation.cpp in Sources */,

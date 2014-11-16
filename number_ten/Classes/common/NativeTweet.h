@@ -14,6 +14,8 @@ class NativeTweet
 public:
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     static void openTweetDialog(const char* tweet);
+#else
+    static void openTweetDialog(const char* tweet);
 #endif
     
 };

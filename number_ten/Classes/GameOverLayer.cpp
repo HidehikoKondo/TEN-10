@@ -13,7 +13,7 @@
 #include "NativeTweet.h"
 
 #define DEF_APP_DL_URL_ANDROID  ("http://goo.gl/VKAoCX")
-#define DEF_APP_DL_URL_IOS      ("http://goo.gl/VKAoCX")
+#define DEF_APP_DL_URL_IOS      ("https://itunes.apple.com/jp/app/id942095807")
 
 USING_NS_CC;
 
@@ -175,6 +175,8 @@ void GameOverLayer::onTweet()
     
     //Object-C or JNIに接続してツイートする
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    NativeTweet::openTweetDialog(tweetStr.c_str());
+#else
     NativeTweet::openTweetDialog(tweetStr.c_str());
 #endif
 
