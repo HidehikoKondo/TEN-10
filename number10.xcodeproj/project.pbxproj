@@ -340,12 +340,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57055F2018B0A3CD00EEC416 /* SplashScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SplashScene.cpp; path = number_ten/Classes/SplashScene.cpp; sourceTree = SOURCE_ROOT; };
-		57055F2118B0A3CD00EEC416 /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashScene.h; path = number_ten/Classes/SplashScene.h; sourceTree = SOURCE_ROOT; };
-		57055F2618B0A4D200EEC416 /* base */ = {isa = PBXFileReference; lastKnownFileType = folder; name = base; path = number_ten/Resources/base; sourceTree = SOURCE_ROOT; };
-		57055F2818B0A56A00EEC416 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = number_ten/Resources/Info.plist; sourceTree = SOURCE_ROOT; };
+		57055F2018B0A3CD00EEC416 /* SplashScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScene.cpp; sourceTree = "<group>"; };
+		57055F2118B0A3CD00EEC416 /* SplashScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScene.h; sourceTree = "<group>"; };
+		57055F2618B0A4D200EEC416 /* base */ = {isa = PBXFileReference; lastKnownFileType = folder; path = base; sourceTree = "<group>"; };
+		57055F2818B0A56A00EEC416 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57055F2C18B30A2000EEC416 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		57055F2E18B5265900EEC416 /* logo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = logo; path = number_ten/Resources/logo; sourceTree = SOURCE_ROOT; };
+		57055F2E18B5265900EEC416 /* logo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = logo; sourceTree = "<group>"; };
 		570A753B199288DA00B8144F /* HeaderUINode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HeaderUINode.cpp; sourceTree = "<group>"; };
 		570A753C199288DA00B8144F /* HeaderUINode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderUINode.h; sourceTree = "<group>"; };
 		570A753E19928B0B00B8144F /* GameRuleManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameRuleManager.cpp; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 		5777437819A9C1FE00A5A779 /* NativeTweet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeTweet.h; sourceTree = "<group>"; };
 		5777437919ACFDDF00A5A779 /* DialogLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogLayer.cpp; sourceTree = "<group>"; };
 		5777437A19ACFDDF00A5A779 /* DialogLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogLayer.h; sourceTree = "<group>"; };
-		577C57E0193F818C00CBEBE6 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sound; path = number_ten/Resources/sound; sourceTree = SOURCE_ROOT; };
+		577C57E0193F818C00CBEBE6 /* sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sound; sourceTree = "<group>"; };
 		577C57E2193F830100CBEBE6 /* SoundDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoundDef.h; sourceTree = "<group>"; };
 		5782755A1A13927300497DBA /* AnswerPointNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnswerPointNode.cpp; sourceTree = "<group>"; };
 		5782755B1A13927300497DBA /* AnswerPointNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerPointNode.h; sourceTree = "<group>"; };
@@ -1163,7 +1163,7 @@
 		57AAAC97185EBB3600092891 = {
 			isa = PBXGroup;
 			children = (
-				57AAACB3185EBB3600092891 /* number_ten */,
+				57AAACB3185EBB3600092891 /* number10 */,
 				57AAACA2185EBB3600092891 /* Frameworks */,
 				57AAACA1185EBB3600092891 /* Products */,
 			);
@@ -1196,7 +1196,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		57AAACB3185EBB3600092891 /* number_ten */ = {
+		57AAACB3185EBB3600092891 /* number10 */ = {
 			isa = PBXGroup;
 			children = (
 				57AAACB4185EBB3600092891 /* Resources */,
@@ -1207,7 +1207,7 @@
 				57055F2C18B30A2000EEC416 /* Images.xcassets */,
 				57AAB042185EBB3B00092891 /* Supporting Files */,
 			);
-			path = number_ten;
+			path = number10;
 			sourceTree = "<group>";
 		};
 		57AAACB4185EBB3600092891 /* Resources */ = {
@@ -2400,9 +2400,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		57AAAC9F185EBB3600092891 /* number_ten */ = {
+		57AAAC9F185EBB3600092891 /* number10 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57AAB04D185EBB3B00092891 /* Build configuration list for PBXNativeTarget "number_ten" */;
+			buildConfigurationList = 57AAB04D185EBB3B00092891 /* Build configuration list for PBXNativeTarget "number10" */;
 			buildPhases = (
 				57AAAC9C185EBB3600092891 /* Sources */,
 				57AAAC9D185EBB3600092891 /* Frameworks */,
@@ -2412,7 +2412,7 @@
 			);
 			dependencies = (
 			);
-			name = number_ten;
+			name = number10;
 			productName = TreeTest;
 			productReference = 57AAACA0185EBB3600092891 /* number_ten.app */;
 			productType = "com.apple.product-type.application";
@@ -2442,7 +2442,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				57AAAC9F185EBB3600092891 /* number_ten */,
+				57AAAC9F185EBB3600092891 /* number10 */,
 			);
 		};
 /* End PBXProject section */
@@ -2854,14 +2854,14 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = number_ten/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				INFOPLIST_FILE = "$(SRCROOT)/number_ten/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/$(PROJECT_NAME)/Resources/Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					number_ten/libs/cocos2dx/platform/third_party/ios/libraries,
-					number_ten/libs/libwebsockets/ios/lib,
-					"$(PROJECT_DIR)/number_ten/appc_cloud_ios",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios/libraries\"",
+					"\"$(PROJECT_NAME)/libs/libwebsockets/ios/lib\"",
+					"$(PROJECT_DIR)/$(PROJECT_NAME)/appc_cloud_ios",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -2869,7 +2869,7 @@
 					"-lsqlite3",
 				);
 				PRODUCT_NAME = number_ten;
-				USER_HEADER_SEARCH_PATHS = "\"number_ten/libs/Chipmunk/include/chipmunk\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_NAME)/libs/Chipmunk/include/chipmunk\"";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2883,14 +2883,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = number_ten/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/Prefix.pch";
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
-				INFOPLIST_FILE = "$(SRCROOT)/number_ten/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/$(PROJECT_NAME)/Resources/Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					number_ten/libs/cocos2dx/platform/third_party/ios/libraries,
-					number_ten/libs/libwebsockets/ios/lib,
-					"$(PROJECT_DIR)/number_ten/appc_cloud_ios",
+					"\"$(PROJECT_NAME)/libs/cocos2dx/platform/third_party/ios/libraries\"",
+					"\"$(PROJECT_NAME)/libs/libwebsockets/ios/lib\"",
+					"$(PROJECT_DIR)/$(PROJECT_NAME)/appc_cloud_ios",
 				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -2898,7 +2898,7 @@
 					"-lsqlite3",
 				);
 				PRODUCT_NAME = number_ten;
-				USER_HEADER_SEARCH_PATHS = "\"number_ten/libs/Chipmunk/include/chipmunk\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_NAME)/libs/Chipmunk/include/chipmunk\"";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2916,7 +2916,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57AAB04D185EBB3B00092891 /* Build configuration list for PBXNativeTarget "number_ten" */ = {
+		57AAB04D185EBB3B00092891 /* Build configuration list for PBXNativeTarget "number10" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57AAB04E185EBB3B00092891 /* Debug */,
