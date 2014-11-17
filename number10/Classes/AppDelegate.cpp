@@ -15,7 +15,8 @@
 #include "SplashScene.h"
 #include "AppCCloudPlugin.h"
 
-#define MEDIA_KEY "07899191eb703f79a82a28a93938a0ae8dd7fe4f"
+#define MEDIA_KEY "5e687447487b73c2bd453db12efcce429efddbe3"
+
 
 USING_NS_CC;
 using namespace CocosDenshion;
